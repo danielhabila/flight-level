@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import "./css/style.css";
 import Sticky from "sticky-js";
 import Home from "./pages/Home";
+import JobList2 from "./pages/JobList2";
 
 function App() {
   const location = useLocation();
@@ -25,7 +26,7 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        {/* <Route path="/" element={<Lpage />} /> */}
+        <Route path="/details" element={<JobList2 />} />
         {/*  <Route path="/jobDescription/:id" element={<JobPost />} /> */}
       </Routes>
 

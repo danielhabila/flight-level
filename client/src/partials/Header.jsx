@@ -9,7 +9,7 @@ function Header() {
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
-            <Link className="block group" to="/" aria-label="Cruip">
+            <Link className="block group" to="/">
               <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
                 <path
                   className="fill-blue-100 group-hover:fill-white transform duration-150 ease-in-out"
@@ -29,19 +29,19 @@ function Header() {
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
                 <Link
-                  className="font-cabinet-grotesk text-sm font-bold text-white underline hover:no-underline flex items-center"
+                  className="font-cabinet-grotesk text-sm font-medium text-white hover:underline flex items-center"
                   to="/signin"
                 >
-                  Sign in
+                  About
                 </Link>
               </li>
               <li className="ml-6">
                 <Link
-                  className="btn-sm inline-flex items-center text-white bg-gray-900 hover:bg-gray-800 group"
+                  className="btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
                   to="/schedule-call"
                 >
-                  Schedule A Call
-                  <span className="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                  Add your salary
+                  <span className="tracking-normal text-blue-800 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     <svg
                       className="fill-current"
                       xmlns="http://www.w3.org/2000/svg"
