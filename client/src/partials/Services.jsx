@@ -1,12 +1,9 @@
 import React from "react";
 
 import Service05 from "../images/ame.jpeg";
-import Service02 from "../images/controller.jpeg";
-import Service03 from "../images/psa.png";
+
 import Service04 from "../images/instructor.jpeg";
 import Service01 from "../images/pilots.jpg";
-import Service06 from "../images/ramp-agent.jpeg";
-import Service07 from "../images/webdev.jpg";
 import Service08 from "../images/flight-attendant .png";
 
 function Services() {
@@ -28,7 +25,7 @@ function Services() {
               <div className="h-full flex flex-col">
                 {/* Image */}
                 <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
+                  <a className="block group overflow-hidden" href="/details">
                     <img
                       className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
                       src={Service01}
@@ -47,52 +44,7 @@ function Services() {
                   </a>
                 </div>
               </div>
-              {/* Item #2 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <img
-                      className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service02}
-                      width="202"
-                      height="128"
-                      alt="Item 02"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a
-                    className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out"
-                    href="#0"
-                  >
-                    Air traffic controller
-                  </a>
-                </div>
-              </div>
-              {/* Item #3 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <img
-                      className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service03}
-                      width="202"
-                      height="128"
-                      alt="Item 03"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a
-                    className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out"
-                    href="#0"
-                  >
-                    Passenger service agent
-                  </a>
-                </div>
-              </div>
+
               {/* Item #4 */}
               <div className="h-full flex flex-col">
                 {/* Image */}
@@ -139,52 +91,7 @@ function Services() {
                   </a>
                 </div>
               </div>
-              {/* Item #6 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <img
-                      className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service06}
-                      width="202"
-                      height="128"
-                      alt="Item 06"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a
-                    className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out"
-                    href="#0"
-                  >
-                    Ramp agent
-                  </a>
-                </div>
-              </div>
-              {/* Item #7 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <img
-                      className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service07}
-                      width="202"
-                      height="128"
-                      alt="Item 07"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a
-                    className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out"
-                    href="#0"
-                  >
-                    Software developer
-                  </a>
-                </div>
-              </div>
+
               {/* Item #8 */}
               <div className="h-full flex flex-col">
                 {/* Image */}

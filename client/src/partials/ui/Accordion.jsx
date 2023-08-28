@@ -51,7 +51,7 @@ export default function Accordion({ children, title, id, active = false }) {
         id={`accordion-text-${id}`}
         role="region"
         aria-labelledby={`accordion-title-${id}`}
-        className={`grid text-slate-500 dark:text-slate-400 overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`grid text-white  overflow-hidden transition-all duration-300 ease-in-out ${
           accordionOpen
             ? "grid-rows-[1fr] opacity-100"
             : "grid-rows-[0fr] opacity-0"

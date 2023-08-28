@@ -35,7 +35,7 @@ export default function Hero() {
           />
         </svg>
 
-        <div className="mx-auto max-w-6xl pb-24 pt-10 sm:pb-40 lg:flex lg:pt-40">
+        <div className="mx-auto max-w-6xl pb-24 pt-16 sm:pb-40 lg:flex lg:pt-28">
           <Services />
         </div>
       </div>

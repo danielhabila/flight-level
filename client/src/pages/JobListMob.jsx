@@ -31,8 +31,8 @@ export default function Terms() {
 
   return (
     <section className="py-8">
-      <h2 className="text-lg font-semibold mb-5">Project Terms</h2>
-      <div className="space-y-3">
+      <h2 className="text-lg text-white font-semibold mb-5">Project Terms</h2>
+      <div className="space-y-3 text-white">
         {terms.map((term, index) => (
           <Accordion
             key={index}
