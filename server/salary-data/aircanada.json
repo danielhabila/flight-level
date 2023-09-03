@@ -1,0 +1,128 @@
+{
+  "Air Canada": {
+    "First Officer": [
+      {
+        "experience": "YR 1",
+        "hourlyRate": "$66.54",
+        "totalCompensation": "$62,217.71"
+      },
+      {
+        "experience": "YR 2",
+        "hourlyRate": "$81.50",
+        "totalCompensation": "$76,202.50"
+      },
+      {
+        "experience": "YR 3",
+        "hourlyRate": "$92.13",
+        "totalCompensation": "$86,138.75"
+      },
+      {
+        "experience": "YR 4",
+        "hourlyRate": "$98.37",
+        "totalCompensation": "$91,975.25"
+      },
+      {
+        "experience": "YR 5",
+        "hourlyRate": "$113.10",
+        "totalCompensation": "$105,747.10"
+      },
+      {
+        "experience": "YR 6",
+        "hourlyRate": "$118.25",
+        "totalCompensation": "$110,567.72"
+      },
+      {
+        "experience": "YR 7",
+        "hourlyRate": "$122.43",
+        "totalCompensation": "$114,468.31"
+      },
+      {
+        "experience": "YR 8",
+        "hourlyRate": "$123.73",
+        "totalCompensation": "$115,685.45"
+      },
+      {
+        "experience": "YR 9",
+        "hourlyRate": "$125.59",
+        "totalCompensation": "$117,429.69"
+      },
+      {
+        "experience": "YR 10",
+        "hourlyRate": "$127.47",
+        "totalCompensation": "$119,183.52"
+      },
+      {
+        "experience": "YR 11",
+        "hourlyRate": "$63.75",
+        "totalCompensation": "$57,375.00"
+      },
+      {
+        "experience": "YR 12",
+        "hourlyRate": "$69.70",
+        "totalCompensation": "$62,730.00"
+      }
+    ],
+    "Captain": [
+      {
+        "experience": "YR 1",
+        "hourlyRate": "$184.72",
+        "totalCompensation": "$177,331.20"
+      },
+      {
+        "experience": "YR 2",
+        "hourlyRate": "$191.92",
+        "totalCompensation": "$184,243.20"
+      },
+      {
+        "experience": "YR 3",
+        "hourlyRate": "$206.34",
+        "totalCompensation": "$198,086.40"
+      },
+      {
+        "experience": "YR 4",
+        "hourlyRate": "$213.55",
+        "totalCompensation": "$205,008.00"
+      },
+      {
+        "experience": "YR 5",
+        "hourlyRate": "$220.76",
+        "totalCompensation": "$211,929.60"
+      },
+      {
+        "experience": "YR 6",
+        "hourlyRate": "$227.76",
+        "totalCompensation": "$218,649.60"
+      },
+      {
+        "experience": "YR 7",
+        "hourlyRate": "$227.96",
+        "totalCompensation": "$218,841.60"
+      },
+      {
+        "experience": "YR 8",
+        "hourlyRate": "$235.17",
+        "totalCompensation": "$225,763.20"
+      },
+      {
+        "experience": "YR 9",
+        "hourlyRate": "$242.38",
+        "totalCompensation": "$232,684.80"
+      },
+      {
+        "experience": "YR 10",
+        "hourlyRate": "$249.59",
+        "totalCompensation": "$239,606.40"
+      },
+      {
+        "experience": "YR 11",
+        "hourlyRate": "$254.59",
+        "totalCompensation": "$244,406.40"
+      },
+      {
+        "experience": "YR 12",
+        "hourlyRate": "$254.59",
+        "totalCompensation": "$244,406.40"
+      }
+    ]
+  }
+}

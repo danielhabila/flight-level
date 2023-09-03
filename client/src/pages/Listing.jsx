@@ -1,7 +1,9 @@
+import React, { useState, useEffect } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
+import axios from "axios";
 
 const people = [
   {
@@ -32,6 +34,29 @@ const people = [
 ];
 
 export default function Example() {
+  const [annual, setAnnual] = useState(true);
+  const [salaryList, setSalaryList] = useState([]);
+  //   const [salaryDetails, setSalaryDetails] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  /* ************************************************************************* */
+  useEffect(() => {
+    const fetchSalary = async () => {
+      try {
+        setLoading(true);
+        const res = await axios.get("/api/");
+        setSalaryList(res.data);
+        console.log(salaryList[0].Captain);
+        setLoading(false);
+      } catch (err) {
+        console.error(err);
+        setLoading(false);
+      }
+    };
+    fetchSalary();
+  }, []);
+  /* ************************************************************************* */
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden bg-gray-900">
       <Header />
@@ -69,7 +94,38 @@ export default function Example() {
                     <Disclosure.Panel as="dd" className="mt-2 pr-12">
                       <p className="text-base leading-7 text-gray-300">
                         {/* ************************************************************************* */}
-
+                        {/* Pricing toggle */}
+                        <div className="flex justify-center max-w-[18rem] m-auto mb-8 lg:mb-16">
+                          <div className="relative flex w-full mx-6 p-1 bg-gray-200 rounded-full">
+                            <span
+                              className="absolute inset-0 m-1 pointer-events-none"
+                              aria-hidden="true"
+                            >
+                              <span
+                                className={`absolute inset-0 w-1/2 bg-white rounded-full shadow transform transition duration-150 ease-in-out ${
+                                  annual ? "translate-x-0" : "translate-x-full"
+                                }`}
+                              />
+                            </span>
+                            <button
+                              className={`relative flex-1 text-sm font-medium p-1 transition duration-150 ease-in-out ${
+                                annual && "text-gray-500"
+                              }`}
+                              onClick={() => setAnnual(true)}
+                            >
+                              First Officer
+                            </button>
+                            <button
+                              className={`relative flex-1 text-sm font-medium p-1 transition duration-150 ease-in-out ${
+                                annual && "text-gray-500"
+                              }`}
+                              onClick={() => setAnnual(false)}
+                            >
+                              Captain
+                            </button>
+                          </div>
+                        </div>
+                        {/* ************************************************************************* */}
                         <div className="mx-auto px-4 ">
                           <div className="mt-8 flow-root ">
                             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -81,25 +137,19 @@ export default function Example() {
                                         scope="col"
                                         className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0"
                                       >
-                                        Company Name
+                                        Years of Experience
+                                      </th>
+                                      <th
+                                        scope="col"
+                                        className="px-3 py-3.5 text-left text-sm font-semibold text-white"
+                                      >
+                                        Hourly Rate
                                       </th>
                                       <th
                                         scope="col"
                                         className="px-3 py-3.5 text-left text-sm font-semibold text-white sm:pl-0"
                                       >
                                         Total Compensation
-                                      </th>
-                                      <th
-                                        scope="col"
-                                        className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                                      >
-                                        Hourly Wage
-                                      </th>
-                                      <th
-                                        scope="col"
-                                        className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                                      >
-                                        Years of Experience
                                       </th>
                                     </tr>
                                   </thead>
@@ -115,9 +165,7 @@ export default function Example() {
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
                                           {person.title}
                                         </td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
-                                          {person.email}
-                                        </td>
+
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
                                           {person.role}
                                         </td>
