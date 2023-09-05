@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   try {
     const AirlineModel = await airlineModel.find({});
     res.json(AirlineModel);
-    console.log(AirlineModel);
+    // console.log(AirlineModel);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

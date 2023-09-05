@@ -5,6 +5,7 @@ import Sticky from "sticky-js";
 import Home from "./pages/Home";
 import Listing from "./pages/Listing";
 import JobList2 from "./pages/JobList2";
+import JobListMob from "./pages/JobListMob";
 
 function App() {
   const location = useLocation();
@@ -28,7 +29,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/details" element={<Listing />} />
-        {/* <Route path="/details" element={<JobList2 />} /> */}
+        {/* <Route path="/details" element={<JobListMob />} /> */}
         {/*  <Route path="/jobDescription/:id" element={<JobPost />} /> */}
       </Routes>
 

@@ -28,7 +28,28 @@ export default function Terms() {
       active: false,
     },
   ];
+  /* ************************************************************************* */
 
+  const [salaryList, setSalaryList] = useState([]);
+  //   const [salaryDetails, setSalaryDetails] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchSalary = async () => {
+      try {
+        setLoading(true);
+        const res = await axios.get("/api/");
+        setSalaryList(res.data);
+        console.log(salaryList);
+        setLoading(false);
+      } catch (err) {
+        console.error(err);
+        setLoading(false);
+      }
+    };
+    fetchSalary();
+  }, []);
+  /* ************************************************************************* */
   return (
     <section className="py-8">
       <h2 className="text-lg text-white font-semibold mb-5">Project Terms</h2>

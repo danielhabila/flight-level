@@ -5,36 +5,8 @@ import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import axios from "axios";
 
-const people = [
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-  // More people...
-];
-
 export default function Example() {
-  const [annual, setAnnual] = useState(true);
+  const [firstOfficer, setFirstOfficer] = useState(true);
   const [salaryList, setSalaryList] = useState([]);
   //   const [salaryDetails, setSalaryDetails] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -46,7 +18,7 @@ export default function Example() {
         setLoading(true);
         const res = await axios.get("/api/");
         setSalaryList(res.data);
-        console.log(salaryList[0].Captain);
+        console.log("salaryList ", salaryList);
         setLoading(false);
       } catch (err) {
         console.error(err);
@@ -55,7 +27,6 @@ export default function Example() {
     };
     fetchSalary();
   }, []);
-  /* ************************************************************************* */
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden bg-gray-900">
@@ -67,14 +38,14 @@ export default function Example() {
             Frequently asked questions
           </h2>
           <dl className="mt-10 space-y-6 divide-y divide-white/10">
-            {people.map((faq) => (
-              <Disclosure as="div" key={faq.question} className="pt-6">
+            {salaryList.map((oneAirline) => (
+              <Disclosure as="div" key={oneAirline.question} className="pt-6">
                 {({ open }) => (
                   <>
                     <dt>
                       <Disclosure.Button className="flex w-full items-start justify-between text-left text-white">
                         <span className="text-base font-semibold leading-7">
-                          {faq.name}
+                          {oneAirline.airline}
                         </span>
                         <span className="ml-6 flex h-7 items-center">
                           {open ? (
@@ -95,7 +66,7 @@ export default function Example() {
                       <p className="text-base leading-7 text-gray-300">
                         {/* ************************************************************************* */}
                         {/* Pricing toggle */}
-                        <div className="flex justify-center max-w-[18rem] m-auto mb-8 lg:mb-16">
+                        <div className="flex justify-center max-w-[18rem] m-auto mb-8">
                           <div className="relative flex w-full mx-6 p-1 bg-gray-200 rounded-full">
                             <span
                               className="absolute inset-0 m-1 pointer-events-none"
@@ -103,23 +74,25 @@ export default function Example() {
                             >
                               <span
                                 className={`absolute inset-0 w-1/2 bg-white rounded-full shadow transform transition duration-150 ease-in-out ${
-                                  annual ? "translate-x-0" : "translate-x-full"
+                                  firstOfficer
+                                    ? "translate-x-0"
+                                    : "translate-x-full"
                                 }`}
                               />
                             </span>
                             <button
                               className={`relative flex-1 text-sm font-medium p-1 transition duration-150 ease-in-out ${
-                                annual && "text-gray-500"
+                                firstOfficer && "text-gray-500"
                               }`}
-                              onClick={() => setAnnual(true)}
+                              onClick={() => setFirstOfficer(true)}
                             >
                               First Officer
                             </button>
                             <button
                               className={`relative flex-1 text-sm font-medium p-1 transition duration-150 ease-in-out ${
-                                annual && "text-gray-500"
+                                firstOfficer && "text-gray-500"
                               }`}
-                              onClick={() => setAnnual(false)}
+                              onClick={() => setFirstOfficer(false)}
                             >
                               Captain
                             </button>
@@ -154,23 +127,45 @@ export default function Example() {
                                     </tr>
                                   </thead>
                                   <tbody className="divide-y divide-gray-800">
-                                    {people.map((person) => (
-                                      <tr
-                                        key={person.email}
-                                        className="odd:bg-gradient-to-tr from-gray-900 to-gray-800"
-                                      >
-                                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
-                                          {person.name}
-                                        </td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
-                                          {person.title}
-                                        </td>
+                                    {firstOfficer
+                                      ? oneAirline.positions.firstOfficer?.map(
+                                          (one) => (
+                                            <tr
+                                              // key={one.email}
+                                              className="odd:bg-gradient-to-tr from-gray-900 to-gray-800"
+                                            >
+                                              <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
+                                                {one.experience}
+                                              </td>
+                                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
+                                                {one.hourlyRate}
+                                              </td>
 
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
-                                          {person.role}
-                                        </td>
-                                      </tr>
-                                    ))}
+                                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
+                                                {one.totalCompensation}
+                                              </td>
+                                            </tr>
+                                          )
+                                        )
+                                      : oneAirline.positions.captain?.map(
+                                          (one) => (
+                                            <tr
+                                              // key={one.email}
+                                              className="odd:bg-gradient-to-tr from-gray-900 to-gray-800"
+                                            >
+                                              <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
+                                                {one.experience}
+                                              </td>
+                                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
+                                                {one.hourlyRate}
+                                              </td>
+
+                                              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-300">
+                                                {one.totalCompensation}
+                                              </td>
+                                            </tr>
+                                          )
+                                        )}
                                   </tbody>
                                 </table>
                               </div>
