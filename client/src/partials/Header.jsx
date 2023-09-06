@@ -30,7 +30,7 @@ function Header() {
               <li>
                 <Link
                   className="font-cabinet-grotesk text-sm font-medium text-white hover:underline flex items-center"
-                  to="/signin"
+                  to="/about"
                 >
                   About
                 </Link>
@@ -38,7 +38,7 @@ function Header() {
               <li className="ml-6">
                 <Link
                   className="btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
-                  to="/schedule-call"
+                  to="/add-salary"
                 >
                   Add your salary
                   <span className="tracking-normal text-blue-800 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">

@@ -1,10 +1,29 @@
 import React from "react";
 
-import Service05 from "../images/ame.jpeg";
-
-import Service04 from "../images/instructor.jpeg";
-import Service01 from "../images/pilots.jpg";
+import canada from "../images/canada-image.jpg";
+import usa from "../images/instructor.jpeg";
+import england from "../images/pilots.jpg";
+import spain from "../images/ame.jpeg";
 import Service08 from "../images/flight-attendant .png";
+
+const countries = [
+  {
+    countryName: "Canada 🇨🇦",
+    image: canada,
+  },
+  {
+    countryName: "United States 🇺🇸",
+    image: usa,
+  },
+  {
+    countryName: "United Kingdom 🇬🇧",
+    image: england,
+  },
+  {
+    countryName: "Spain 🇪🇸",
+    image: spain,
+  },
+];
 
 function Services() {
   return (
@@ -21,100 +40,31 @@ function Services() {
 
             {/* Grid */}
             <div className="max-w-2xl mx-auto grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg:max-w-none items-start pb-6">
-              {/* Item #1 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="/details">
-                    <img
-                      className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service01}
-                      width="202"
-                      height="128"
-                      alt="Item 01"
-                    />
-                  </a>
+              {countries.map((country) => (
+                <div className="h-full flex flex-col relative">
+                  {/* Image */}
+                  <div className="mb-4 relative">
+                    <a className="block group overflow-hidden" href="/details">
+                      <img
+                        className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
+                        src={country.image}
+                        width="202"
+                        height="128"
+                        alt="Item 01"
+                      />
+                    </a>
+                    {/* Absolute position the text in the middle */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full ">
+                      <a
+                        className="font-cabinet-grotesk font-bold text-white text-2xl tracking-wider shadow-2xl"
+                        href="/details"
+                      >
+                        {country.countryName}
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div className="grow text-center">
-                  <a
-                    className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out"
-                    href="#0"
-                  >
-                    Pilot
-                  </a>
-                </div>
-              </div>
-
-              {/* Item #4 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <img
-                      className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service04}
-                      width="202"
-                      height="128"
-                      alt="Item 04"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a
-                    className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out"
-                    href="#0"
-                  >
-                    Flight Instructor
-                  </a>
-                </div>
-              </div>
-              {/* Item #5 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <img
-                      className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service05}
-                      width="202"
-                      height="128"
-                      alt="Item 05"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a
-                    className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out"
-                    href="#0"
-                  >
-                    Engineer
-                  </a>
-                </div>
-              </div>
-
-              {/* Item #8 */}
-              <div className="h-full flex flex-col">
-                {/* Image */}
-                <div className="mb-4">
-                  <a className="block group overflow-hidden" href="#0">
-                    <img
-                      className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
-                      src={Service08}
-                      width="202"
-                      height="128"
-                      alt="Item 08"
-                    />
-                  </a>
-                </div>
-                <div className="grow text-center">
-                  <a
-                    className="font-cabinet-grotesk font-bold text-gray-100 hover:text-blue-500 transition duration-150 ease-in-out"
-                    href="#0"
-                  >
-                    Flight attendant
-                  </a>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Bottom gradient */}
