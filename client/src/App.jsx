@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Listing from "./pages/Listing";
 import About from "./pages/About";
 import AddSalary from "./pages/AddSalary";
+import ContactMe from "./partials/ContactMe";
 
 function App() {
   const location = useLocation();
@@ -34,8 +35,7 @@ function App() {
 
         {/*  <Route path="/jobDescription/:id" element={<JobPost />} /> */}
       </Routes>
-
-      {/* <FeedbackButton /> */}
+      <ContactMe />
     </div>
   );
 }

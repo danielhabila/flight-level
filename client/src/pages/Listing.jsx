@@ -35,9 +35,9 @@ export default function Example() {
       <div className="flex flex-col min-h-screen overflow-hidden ">
         <Header />
 
-        <main className="grow py-12 md:py-20">
+        <main className="grow py-16 md:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
-            <h2 className="text-2xl font-bold leading-10 tracking-tight text-white ">
+            <h2 className="h2 font-cabinet-grotesk text-gray-100 ">
               Explore Salaries 💸
             </h2>
             <dl className="mt-10 space-y-4 divide-y divide-white/10 ">

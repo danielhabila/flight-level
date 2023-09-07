@@ -1,7 +1,6 @@
 import Hero from "../partials/Hero";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
-import ContactMe from "../partials/ContactMe";
 
 function HomeRecruiter() {
   return (
@@ -11,7 +10,7 @@ function HomeRecruiter() {
       <main className="grow">
         <Hero />
       </main>
-      <ContactMe />
+
       <Footer />
     </div>
   );
