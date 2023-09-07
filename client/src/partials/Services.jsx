@@ -1,10 +1,7 @@
 import React from "react";
 
 import canada from "../images/canada-image.jpg";
-import usa from "../images/instructor.jpeg";
-import england from "../images/pilots.jpg";
-import spain from "../images/ame.jpeg";
-import Service08 from "../images/flight-attendant .png";
+import usa from "../images/usa-image.jpg";
 
 const countries = [
   {
@@ -15,14 +12,6 @@ const countries = [
     countryName: "United States 🇺🇸",
     image: usa,
   },
-  {
-    countryName: "United Kingdom 🇬🇧",
-    image: england,
-  },
-  {
-    countryName: "Spain 🇪🇸",
-    image: spain,
-  },
 ];
 
 function Services() {
@@ -30,7 +19,7 @@ function Services() {
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          <div className="relative">
+          <div className="relative ">
             {/* Section header */}
             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
               <h2 className="h2 font-cabinet-grotesk text-gray-100">
@@ -39,14 +28,17 @@ function Services() {
             </div>
 
             {/* Grid */}
-            <div className="max-w-2xl mx-auto grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg:max-w-none items-start pb-6">
+            <div className="max-w-2xl mx-auto grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 lg:max-w-none  pb-6 ">
               {countries.map((country) => (
                 <div className="h-full flex flex-col relative">
                   {/* Image */}
-                  <div className="mb-4 relative">
-                    <a className="block group overflow-hidden" href="/details">
+                  <div className="mb-4 relative ">
+                    <a
+                      className="block group overflow-hidden rounded-md"
+                      href="/details"
+                    >
                       <img
-                        className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out"
+                        className="w-full aspect-[101/64] object-cover group-hover:scale-105 transition duration-700 ease-out  "
                         src={country.image}
                         width="202"
                         height="128"

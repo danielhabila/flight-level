@@ -1,6 +1,6 @@
 /* Typography */
 .h1 {
-    @apply text-5xl font-extrabold;
+    @apply text-5xl font-extrabold ;
 }
 
 .h2 {
