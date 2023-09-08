@@ -1,6 +1,6 @@
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
-import BgSVG from "../partials/ui/bgSVG";
+import BgSVG from "../partials/ui/BgSVG";
 
 export default function About() {
   return (
