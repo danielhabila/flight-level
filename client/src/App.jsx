@@ -32,8 +32,6 @@ function App() {
         <Route path="/details" element={<Listing />} />
         <Route path="/about" element={<About />} />
         <Route path="/add-salary" element={<AddSalary />} />
-
-        {/*  <Route path="/jobDescription/:id" element={<JobPost />} /> */}
       </Routes>
       <ContactMe />
     </div>

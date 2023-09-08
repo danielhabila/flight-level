@@ -5,6 +5,7 @@ import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import axios from "axios";
 import BgSVG from "../partials/ui/bgSVG";
+import SalaryStats from "../partials/ui/SalaryStats";
 
 export default function Example() {
   const [firstOfficer, setFirstOfficer] = useState(true);
@@ -40,18 +41,19 @@ export default function Example() {
             <h2 className="h2 font-cabinet-grotesk text-gray-100 ">
               Explore Salaries 💸
             </h2>
-            <dl className="mt-10 space-y-4 divide-y divide-white/10 ">
+
+            <dl className="mt-10 space-y- ">
               {salaryList.map((oneAirline) => (
                 <Disclosure
                   as="div"
                   key={oneAirline.question}
-                  className="pt-4 md:px-4"
+                  className="pt-3 md:px-4"
                 >
                   {({ open }) => (
                     <>
-                      <dt>
+                      <dt className="border-0 bg-white/5 rounded-md ring-1 ring-white/20 p-5">
                         <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-100">
-                          <span className="text-base font-semibold leading-7">
+                          <span className="text-base font-semibold leading-7 ">
                             {oneAirline.airline}
                           </span>
                           <span className="ml-6 flex h-7 items-center">
@@ -69,11 +71,14 @@ export default function Example() {
                           </span>
                         </Disclosure.Button>
                       </dt>
-                      <Disclosure.Panel as="dd" className="mt-2  md:px-12 ">
+                      <Disclosure.Panel
+                        as="dd"
+                        className="mt-2 py-2 md:px-12 ring-1 ring-white/20 rounded-md"
+                      >
                         <p className="text-base text-gray-300 ">
                           {/* ************************************************************************* */}
                           {/* Pricing toggle */}
-                          <div className="flex justify-center max-w-[18rem] m-auto ">
+                          <div className="flex justify-center max-w-[18rem] m-auto pt-2">
                             <div className="relative flex w-full mx-6 p-1 bg-black shadow-xl rounded-full">
                               <span
                                 className="absolute inset-0 m-1 pointer-events-none"
@@ -105,11 +110,14 @@ export default function Example() {
                               </button>
                             </div>
                           </div>
-                          {/* ************************************************************************* */}
+                          {/* ********************************  SALARY TABLE ********************************** */}
                           <div className="mx-auto px-4 ">
-                            <div className="mt-8 flow-root ">
+                            <div className="mt-4 flow-root ">
                               <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                  <div className="py-8">
+                                    <SalaryStats />
+                                  </div>
                                   <table className="min-w-full divide-y divide-gray-700 ">
                                     <thead>
                                       <tr>

@@ -3,7 +3,6 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import submittedModel from "../mongodb/models/submittedModel.js";
 import axios from "axios";
-import TelegramBot from "node-telegram-bot-api";
 
 dotenv.config();
 const app = express();
@@ -18,7 +17,6 @@ const telegramChatId = process.env.TELEGRAM_CHAT_ID;
 router.post("/", async (req, res) => {
   try {
     const salaryForm = req.body;
-    console.log("salaryForm", salaryForm);
 
     // Save the data to MongoDB
     const newSubmission = await submittedModel.create(salaryForm);
