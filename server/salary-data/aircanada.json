@@ -1,7 +1,7 @@
 {
   "airline": "Air Canada",
   "positions": {
-    "captain": [
+    "firstOfficer": [
       {
         "experience": 1,
         "hourlyRate": "$66.54",
@@ -63,7 +63,7 @@
         "totalCompensation": "$62,730.00"
       }
     ],
-    "firstOfficer": [
+    " captain": [
       {
         "experience": 1,
         "hourlyRate": "$184.72",

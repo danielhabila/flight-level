@@ -1,17 +1,16 @@
-const stats = [
-  { name: "Minimum monthly guarantee (MMG)", stat: "80 hours" },
-  { name: "Equipment", stat: "Boeing 737" },
-  { name: "Per Diem", stat: "$10" },
-];
-
-export default function SalaryStats() {
+export default function SalaryStats({ mmg, equipment, perDiem }) {
+  const stats = [
+    { name: "MMG (Minimum Monthly Guarantee)", stat: `${mmg} Hours` },
+    { name: "Airplane", stat: equipment },
+    { name: "Per Diem", stat: perDiem === "" ? "--" : perDiem },
+  ];
   return (
     <div>
-      <dl className="grid grid-cols-1 gap-5 sm:grid-cols-3 px-2 sm:px-0">
+      <dl className="grid gap-2 sm:gap-5 grid-cols-3 px-2 sm:px-0">
         {stats.map((item) => (
           <div
             key={item.name}
-            className="overflow-hidden rounded-lg bg-gray-300 p-4 shadow sm:py-2 sm:px-6"
+            className="overflow-hidden rounded-lg bg-gray-300 p-2 sm:p-4 shadow sm:py-2 sm:px-6"
           >
             <dt className="truncate text-sm font-medium text-gray-600">
               {item.name}

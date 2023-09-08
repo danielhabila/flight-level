@@ -315,7 +315,7 @@ const ApplicationForm = () => {
 
             <div className="mt-6">
               <button
-                className="btn w-full text-white font-semibold bg-indigo-600 hover:bg-indigo-600/80 shadow-sm"
+                className="btn w-full text-white font-semibold bg-[#2c94c0] hover:bg-[#2c94c0]/80 shadow-sm"
                 type="submit"
               >
                 Submit

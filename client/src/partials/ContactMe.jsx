@@ -3,7 +3,7 @@ import React from "react";
 function ContactMe() {
   return (
     <a
-      href="mailto:dann.aviates@gmail.com"
+      href="mailto:aviatorspod@gmail.com"
       target="_blank"
       rel="noreferrer"
       type="button"
