@@ -4,7 +4,7 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import axios from "axios";
-import BgSVG from "../partials/ui/bgSVG";
+import BgSVG from "../partials/ui/BgSVG";
 import SalaryStats from "../partials/ui/SalaryStats";
 
 export default function Example() {
