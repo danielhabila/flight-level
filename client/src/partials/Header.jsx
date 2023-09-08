@@ -41,7 +41,7 @@ function Header() {
                   to="/add-salary"
                 >
                   Add your salary
-                  <span className="tracking-normal text-blue-800 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                  <span className="tracking-normal text-blue-800 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2 hidden md:inline-flex">
                     <svg
                       className="fill-current"
                       xmlns="http://www.w3.org/2000/svg"
