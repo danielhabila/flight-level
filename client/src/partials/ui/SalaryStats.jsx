@@ -1,12 +1,12 @@
 export default function SalaryStats({ mmg, equipment, perDiem }) {
   const stats = [
-    { name: "MMG (Minimum Monthly Guarantee)", stat: `${mmg} Hours` },
+    { name: "MMG (Minimum Monthly Guarantee)", stat: `${mmg} hours` },
     { name: "Airplane", stat: equipment },
     { name: "Per Diem", stat: perDiem === "" ? "--" : perDiem },
   ];
   return (
     <div>
-      <dl className="grid gap-2 sm:gap-5 grid-cols-3 px-2 sm:px-0">
+      <dl className="grid gap-2 sm:gap-5 grid-cols-3 px-2 sm:px-0 text-center">
         {stats.map((item) => (
           <div
             key={item.name}
@@ -15,7 +15,7 @@ export default function SalaryStats({ mmg, equipment, perDiem }) {
             <dt className="truncate text-sm font-medium text-gray-600">
               {item.name}
             </dt>
-            <dd className="mt-1 text-xl font-semibold tracking-tight text-gray-900">
+            <dd className="mt-1 text-md font-semibold tracking-tight text-gray-900">
               {item.stat}
             </dd>
           </div>

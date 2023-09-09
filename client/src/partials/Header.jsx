@@ -35,7 +35,7 @@ function Header() {
                   About
                 </Link>
               </li>
-              <li className="ml-6">
+              <li className="ml-3 sm:ml-6">
                 <Link
                   className="btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
                   to="/add-salary"
