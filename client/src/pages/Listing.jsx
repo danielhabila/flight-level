@@ -1,35 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { FetchSalaryContext } from "../context/FetchSalaryContext.jsx";
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
-import axios from "axios";
 import BgSVG from "../partials/ui/BgSVG";
 import SalaryStats from "../partials/ui/SalaryStats";
 
 export default function Example() {
+  const { salaryList } = useContext(FetchSalaryContext);
   const [firstOfficer, setFirstOfficer] = useState(true);
-  const [salaryList, setSalaryList] = useState([]);
-  //   const [salaryDetails, setSalaryDetails] = useState(true);
-  const [loading, setLoading] = useState(false);
 
-  /* ************************************************************************* */
-  useEffect(() => {
-    const fetchSalary = async () => {
-      try {
-        setLoading(true);
-        const res = await axios.get("/api/");
-        setSalaryList(res.data);
-        console.log("salaryList ", salaryList);
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-        setLoading(false);
-      }
-    };
-    fetchSalary();
-  }, []);
-
+  console.log("salaryListFromListing", salaryList);
   return (
     <div className="relative isolate overflow-hidden bg-gray-900">
       <BgSVG />
@@ -42,21 +24,24 @@ export default function Example() {
               Explore Salaries 💸
             </h2>
 
-            <dl className="mt-10 space-y- ">
-              {salaryList.map((oneAirline) => (
-                <Disclosure
-                  as="div"
-                  key={oneAirline.question}
-                  className="pt-3 md:px-4"
-                >
+            <dl className="mt-10 ">
+              {salaryList.map((oneAirline, i) => (
+                <Disclosure as="div" key={i} className="pt-3 md:px-4">
                   {({ open }) => (
                     <>
                       <dt className="border-0 bg-white/5 rounded-md ring-1 ring-white/20 p-5">
-                        <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-100">
+                        <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-100 ">
                           <span className="text-base font-semibold leading-7 ">
                             {oneAirline.airline}
                           </span>
                           <span className="ml-6 flex h-7 items-center">
+                            <span className="mr-3 sm:mr-10 rounded-full flex-none py-0.5 sm:py-1 px-2 text-xs  font-medium ring-1 ring-inset  italic text-indigo-400">
+                              Starts{" "}
+                              {oneAirline.positions.firstOfficer[0].totalCompensation.replace(
+                                /\.\d+$/,
+                                ""
+                              )}{" "}
+                            </span>
                             {open ? (
                               <MinusSmallIcon
                                 className="h-6 w-6"
@@ -135,22 +120,22 @@ export default function Example() {
                                           scope="col"
                                           className="px-3 py-3.5 text-center text-sm font-semibold text-gray-200 "
                                         >
-                                          Hourly Rate
+                                          Hourly Rate ($CAD)
                                         </th>
                                         <th
                                           scope="col"
                                           className="px-3 py-3.5 text-center text-sm font-semibold text-gray-200 sm:pl-0 "
                                         >
-                                          Total Compensation
+                                          Total Compensation ($CAD)
                                         </th>
                                       </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-800 ">
                                       {firstOfficer
                                         ? oneAirline.positions.firstOfficer?.map(
-                                            (one) => (
+                                            (one, i) => (
                                               <tr
-                                                // key={one.email}
+                                                key={i}
                                                 className="odd:bg-gradient-to-tr from-gray-900 to-gray-800 "
                                               >
                                                 <td className="whitespace-nowrap py-3.5 text-sm font-medium text-gray-300  w-1/3 text-center">
