@@ -10,7 +10,7 @@ export default function About() {
         <Header />
 
         <main className="grow py-16 md:py-24">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 py-10">
             <h2 className="h2 font-cabinet-grotesk text-gray-100">About</h2>
             <div>
               <p className="mt-6 md:text-lg leading-8 text-gray-300 ">
@@ -36,7 +36,7 @@ export default function About() {
               <p className="mt-6 md:text-lg leading-8 text-gray-300 ">
                 Here's where you come in – use the 'Add your salary' feature to
                 share your own data. It's not just about helping us improve the
-                site; it's about helping each other out. A bunch of pilots have
+                site; it's about helping each other out. A number of pilots have
                 already stepped up, and I gotta say, big thanks to them!
               </p>
               <p className="mt-6 md:text-lg leading-8 text-gray-300 ">

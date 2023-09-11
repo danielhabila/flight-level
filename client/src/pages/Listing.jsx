@@ -19,14 +19,14 @@ export default function Example() {
         <Header />
 
         <main className="grow py-16 md:py-24">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 py-10">
             <h2 className="h2 font-cabinet-grotesk text-gray-100 ">
               Explore Salaries 💸
             </h2>
 
             <dl className="mt-10 ">
               {salaryList.map((oneAirline, i) => (
-                <Disclosure as="div" key={i} className="pt-3 md:px-4">
+                <Disclosure as="div" key={i} className="pt-3 ">
                   {({ open }) => (
                     <>
                       <dt className="border-0 bg-white/5 rounded-md ring-1 ring-white/20 p-5">
