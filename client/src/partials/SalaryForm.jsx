@@ -193,7 +193,6 @@ const ApplicationForm = () => {
                       type="text"
                       onChange={handleChange}
                       placeholder="80 hours"
-                      required
                     />
                   </div>
                   <div>
@@ -232,6 +231,7 @@ const ApplicationForm = () => {
                       >
                         <option>New hire</option>
                         <option>Current employee</option>
+                        <option>Past employee</option>
                       </select>
                     </div>
 
@@ -271,7 +271,7 @@ const ApplicationForm = () => {
 "
                       htmlFor="flightTime"
                     >
-                      Total Flight Time <span className="text-red-500">*</span>
+                      Total Flight Time
                     </label>
                     <input
                       id="flightTime"
@@ -279,7 +279,6 @@ const ApplicationForm = () => {
                       className="form-input w-full border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20"
                       type="text"
                       onChange={handleChange}
-                      required
                     />{" "}
                   </div>
 
@@ -340,6 +339,12 @@ const ApplicationForm = () => {
               >
                 {loading ? <Loader w={5} h={5} /> : "Submit"}
               </button>
+            </div>
+            <div className="flex mt-5 gap-1">
+              <span className="text-rose-500 text-lg mt-">*</span>
+              <p className="text-xs text-gray-200 italic mt-1">
+                the red asterisks means required field.
+              </p>
             </div>
           </form>
         </div>
