@@ -7,6 +7,7 @@ import Listing from "./pages/Listing";
 import About from "./pages/About";
 import AddSalary from "./pages/AddSalary";
 import ContactMe from "./partials/ContactMe";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function App() {
         <Route path="/details" element={<Listing />} />
         <Route path="/about" element={<About />} />
         <Route path="/add-salary" element={<AddSalary />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <ContactMe />
     </div>

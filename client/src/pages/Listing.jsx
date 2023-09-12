@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FetchSalaryContext } from "../context/FetchSalaryContext.jsx";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import BgSVG from "../partials/ui/BgSVG";
 import SearchBar from "../partials/ui/SearchBar";
 import RenderListing from "../partials/RenderListing.jsx";
+import Loader from "../partials/ui/Loader.jsx";
 
 export default function Example() {
   const { salaryList, loading, error } = useContext(FetchSalaryContext);
@@ -33,7 +34,9 @@ export default function Example() {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+  // -----------------------------------------------------------------
 
+  // -----------------------------------------------------------------
   return (
     <div className="relative isolate overflow-hidden bg-gray-900">
       <BgSVG />
@@ -46,12 +49,14 @@ export default function Example() {
               Explore Salaries 💸
             </h2>
             <dl className="mt-10 ">
-              <SearchBar handleSearchChange={handleSearchChange} />
+              <div id="search-bar" className="sticky">
+                <SearchBar handleSearchChange={handleSearchChange} />
+              </div>
 
               <div className="mt-4">
                 {loading ? (
-                  <div className="flex justify-center items-center">
-                    Loading...
+                  <div className="grid place-content-center">
+                    <Loader w={16} h={16} />
                   </div>
                 ) : (
                   <>

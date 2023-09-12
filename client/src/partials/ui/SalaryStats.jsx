@@ -1,8 +1,11 @@
 export default function SalaryStats({ mmg, equipment, perDiem }) {
   const stats = [
-    { name: "MMG (Minimum Monthly Guarantee)", stat: `${mmg} hours` },
+    {
+      name: "MMG (Minimum Monthly Guarantee)",
+      stat: mmg === "" ? "--" : `${mmg} hours`,
+    },
     { name: "Airplane", stat: equipment },
-    { name: "Per Diem", stat: perDiem === "" ? "--" : perDiem },
+    { name: "Per Diem", stat: perDiem === "" ? "--" : ` ${perDiem}/hour ` },
   ];
   return (
     <div>

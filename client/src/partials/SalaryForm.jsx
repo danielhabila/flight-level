@@ -149,23 +149,18 @@ const ApplicationForm = () => {
 "
                         htmlFor="hourlyWage"
                       >
-                        Hourly Wage ($CAD){" "}
+                        Hourly Wage or Salary ($CAD){" "}
                         <span className="text-red-500">*</span>
                       </label>
-                      <NumericFormat
+                      <input
                         id="hourlyWage"
                         name="hourlyWage"
-                        className="form-input block w-full  border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20 
-"
-                        // value={value}
+                        className="form-input w-full border-0 bg-white/5  shadow-md ring-1 ring-white/20"
+                        type="text"
                         onChange={handleChange}
-                        format="0,0.00"
-                        decimalSeparator="."
-                        prefix={"$"}
-                        thousandSeparator={true}
-                        allowNegative={false}
                       />
                     </div>
+
                     <div className="flex flex-col w-1/2">
                       <label
                         className="block text-sm font-medium mb-1 text-white
@@ -190,7 +185,6 @@ const ApplicationForm = () => {
                       htmlFor="mmg"
                     >
                       Minimum Monthly Guarantee (MMG){" "}
-                      <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="mmg"
@@ -344,7 +338,7 @@ const ApplicationForm = () => {
                 type="submit"
                 disabled={loading}
               >
-                {loading ? <Loader /> : "Submit"}
+                {loading ? <Loader w={5} h={5} /> : "Submit"}
               </button>
             </div>
           </form>
