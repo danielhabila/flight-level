@@ -3,48 +3,51 @@ import mongoose from "mongoose";
 const submittedSchema = new mongoose.Schema({
   companyName: {
     type: String,
-    required: true,
+    required: false,
   },
   position: {
     type: String,
-    required: true,
+    required: false,
   },
   equipment: {
     type: String,
-    required: true,
+    required: false,
   },
   hourlyWage: {
     type: String,
-    required: true,
+    required: false,
   },
   perDiem: {
     type: String,
+    required: false,
   },
   mmg: {
     type: String,
-    required: true,
+    required: false,
   },
   location: {
     type: String,
-    required: true,
+    required: false,
   },
   employmentStatus: {
     type: String,
-    required: true,
+    required: false,
   },
   yearsAtCompany: {
     type: String,
-    required: true,
+    required: false,
   },
   flightTime: {
     type: String,
-    required: true,
+    required: false,
   },
   notes: {
     type: String,
+    required: false,
   },
   email: {
     type: String,
+    required: false,
   },
 });
 
