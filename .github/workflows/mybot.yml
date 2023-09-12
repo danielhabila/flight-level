@@ -35,6 +35,10 @@ jobs:
           echo TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }} >> .env
           echo TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }} >> .env
 
+          echo CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }} >> .env
+          echo CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }} >> .env
+          echo CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }} >> .env
+
       - name: Install client dependencies
         run: |
           cd client

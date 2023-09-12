@@ -218,51 +218,55 @@ const ApplicationForm = () => {
                     />
                   </div>
 
-                  <div>
-                    <label
-                      className="block text-sm font-medium mb-1"
-                      htmlFor="employmentStatus"
-                    >
-                      Employment Status <span className="text-rose-500">*</span>
-                    </label>
-                    <select
-                      id="employmentStatus"
-                      name="employmentStatus"
-                      className="form-input w-full border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20"
-                      onChange={handleChange}
-                      required
-                    >
-                      <option>New hire</option>
-                      <option>Current employee</option>
-                    </select>
-                  </div>
+                  <div className="flex gap-2">
+                    <div className="w-1/2">
+                      <label
+                        className="block text-sm font-medium mb-1"
+                        htmlFor="employmentStatus"
+                      >
+                        Employment Status{" "}
+                        <span className="text-rose-500">*</span>
+                      </label>
+                      <select
+                        id="employmentStatus"
+                        name="employmentStatus"
+                        className="form-input w-full border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20"
+                        onChange={handleChange}
+                        required
+                      >
+                        <option>New hire</option>
+                        <option>Current employee</option>
+                      </select>
+                    </div>
 
-                  <div>
-                    <label
-                      className="block text-sm font-medium mb-1"
-                      htmlFor="yearsAtCompany"
-                    >
-                      Years at Company <span className="text-rose-500">*</span>
-                    </label>
-                    <select
-                      id="yearsAtCompany"
-                      name="yearsAtCompany"
-                      className="form-input w-full border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20"
-                      onChange={handleChange}
-                      required
-                    >
-                      <option> Less than 1 year</option>
-                      <option>1 </option>
-                      <option>2 </option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8 </option>
-                      <option>9 </option>
-                      <option>10 </option>
-                    </select>
+                    <div className="w-1/2">
+                      <label
+                        className="block text-sm font-medium mb-1"
+                        htmlFor="yearsAtCompany"
+                      >
+                        Years at Company{" "}
+                        <span className="text-rose-500">*</span>
+                      </label>
+                      <select
+                        id="yearsAtCompany"
+                        name="yearsAtCompany"
+                        className="form-input w-full border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20"
+                        onChange={handleChange}
+                        required
+                      >
+                        <option> Less than 1 year</option>
+                        <option>1 </option>
+                        <option>2 </option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8 </option>
+                        <option>9 </option>
+                        <option>10 </option>
+                      </select>
+                    </div>
                   </div>
 
                   <div>
@@ -285,7 +289,7 @@ const ApplicationForm = () => {
 
                   <div>
                     <label
-                      className="block text-sm text-gray-800 font-medium mb-1 text-white
+                      className="block text-sm font-medium mb-1 text-white
 "
                       htmlFor="notes"
                     >
@@ -306,7 +310,7 @@ const ApplicationForm = () => {
 
             <div>
               <label
-                className="block text-sm font-medium mb-1 text-white
+                className="block text-sm font-medium mb-1 text-white mt-2
 "
                 htmlFor="email"
               >
