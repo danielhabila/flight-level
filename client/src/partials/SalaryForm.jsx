@@ -56,6 +56,7 @@ const ApplicationForm = () => {
 
         setLoading(false);
       } else {
+        setLoading(false);
         throw new Error(response.status);
       }
     } catch (error) {
@@ -63,6 +64,7 @@ const ApplicationForm = () => {
         "Something went wrong, please try again. If problem persists please email us using the Contact me button at the bottom right of your screen. Thank you!"
       );
       console.log(error.message);
+      setLoading(false);
     }
   };
 

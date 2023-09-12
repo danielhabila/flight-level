@@ -19,19 +19,10 @@ function FetchSalaryProvider(props) {
     }
     return response.data;
   });
-  // ---------------------------------------------------
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
 
   // Sort the salaryList alphabetically by airline name
-  salaryList.sort((a, b) => a.airline.localeCompare(b.airline));
-  // ---------------------------------------------------
+  salaryList?.sort((a, b) => a.airline.localeCompare(b.airline));
+
   const value = {
     loading,
     salaryList,
