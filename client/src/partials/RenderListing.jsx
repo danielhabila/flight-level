@@ -23,11 +23,15 @@ export default function RenderListing({ data }) {
                     </span>
                     <span className="ml-6 flex h-7 items-center">
                       <span className="mr-3 sm:mr-10 rounded-full flex-none py-0.5 sm:py-1 px-2 text-xs  font-medium ring-1 ring-inset  italic text-indigo-400">
-                        Starts{" "}
-                        {oneAirline.positions.firstOfficer[0].totalCompensation.replace(
-                          /\.\d+$/,
-                          ""
-                        )}{" "}
+                        Starting $
+                        {Math.floor(
+                          parseFloat(
+                            oneAirline.positions.firstOfficer[0].totalCompensation
+                              .replace("$", "")
+                              .replace(",", "")
+                          ) / 1000
+                        )}
+                        K
                       </span>
                       {open ? (
                         <MinusSmallIcon

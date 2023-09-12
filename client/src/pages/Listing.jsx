@@ -13,7 +13,6 @@ export default function Example() {
   const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState(null);
 
-  console.log("searchedResults", searchedResults);
   // ---------------------------Search---------------------------
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
@@ -49,7 +48,7 @@ export default function Example() {
             <dl className="mt-10 ">
               <SearchBar handleSearchChange={handleSearchChange} />
 
-              <div className="mt-8">
+              <div className="mt-4">
                 {loading ? (
                   <div className="flex justify-center items-center">
                     Loading...
