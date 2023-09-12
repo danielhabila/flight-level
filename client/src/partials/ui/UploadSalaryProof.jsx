@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { FetchSalaryContext } from "../../context/FetchSalaryContext.jsx";
-import UploadImage from "../../images/upload.jpg";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
 export default function UploadSalaryProof() {

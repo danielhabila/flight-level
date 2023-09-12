@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { FetchSalaryContext } from "../context/FetchSalaryContext.jsx";
 import axios from "axios";
 import { NumericFormat } from "react-number-format";
-import { PhotoIcon } from "@heroicons/react/24/solid";
 import UploadSalaryProof from "./ui/UploadSalaryProof";
 import Loader from "./ui/Loader.jsx";
 
@@ -142,41 +141,39 @@ const ApplicationForm = () => {
                     />{" "}
                   </div>
 
-                  <div className="flex gap-2">
-                    <div className="flex flex-col w-1/2">
-                      <label
-                        className="block text-sm font-medium mb-1 text-white
+                  <div>
+                    <label
+                      className="block text-sm font-medium mb-1 text-white
 "
-                        htmlFor="hourlyWage"
-                      >
-                        Hourly Wage or Salary ($CAD){" "}
-                        <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        id="hourlyWage"
-                        name="hourlyWage"
-                        className="form-input w-full border-0 bg-white/5  shadow-md ring-1 ring-white/20"
-                        type="text"
-                        onChange={handleChange}
-                      />
-                    </div>
+                      htmlFor="hourlyWage"
+                    >
+                      Hourly Wage or Salary ($CAD){" "}
+                      <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="hourlyWage"
+                      name="hourlyWage"
+                      className="form-input w-full border-0 bg-white/5  shadow-md ring-1 ring-white/20"
+                      type="text"
+                      onChange={handleChange}
+                    />
+                  </div>
 
-                    <div className="flex flex-col w-1/2">
-                      <label
-                        className="block text-sm font-medium mb-1 text-white
+                  <div>
+                    <label
+                      className="block text-sm font-medium mb-1 text-white
 "
-                        htmlFor="perDiem"
-                      >
-                        Per Diem ($CAD)
-                      </label>
-                      <input
-                        id="perDiem"
-                        name="perDiem"
-                        className="form-input w-full border-0 bg-white/5  shadow-md ring-1 ring-white/20"
-                        type="text"
-                        onChange={handleChange}
-                      />
-                    </div>
+                      htmlFor="perDiem"
+                    >
+                      Per Diem ($CAD)
+                    </label>
+                    <input
+                      id="perDiem"
+                      name="perDiem"
+                      className="form-input w-full border-0 bg-white/5  shadow-md ring-1 ring-white/20"
+                      type="text"
+                      onChange={handleChange}
+                    />
                   </div>
 
                   <div>
@@ -325,6 +322,7 @@ const ApplicationForm = () => {
 
             {/* ------------------------------------------------------ */}
             <UploadSalaryProof />
+
             {/* ------------------------------------------------------ */}
 
             <div className="mt-6">
@@ -337,13 +335,13 @@ const ApplicationForm = () => {
                 type="submit"
                 disabled={loading}
               >
-                {loading ? <Loader w={5} h={5} /> : "Submit"}
+                {loading ? "Submitting..." : "Submit"}
               </button>
             </div>
             <div className="flex mt-5 gap-1">
               <span className="text-rose-500 text-lg mt-">*</span>
               <p className="text-xs text-gray-200 italic mt-1">
-                the red asterisks means required field.
+                red asterisk means required field.
               </p>
             </div>
           </form>
