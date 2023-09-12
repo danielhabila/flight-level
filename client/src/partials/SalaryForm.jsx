@@ -1,9 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useContext } from "react";
+import { FetchSalaryContext } from "../context/FetchSalaryContext.jsx";
 import axios from "axios";
 import { NumericFormat } from "react-number-format";
-import { useNavigate } from "react-router-dom";
+import { PhotoIcon } from "@heroicons/react/24/solid";
+import UploadSalaryProof from "./ui/UploadSalaryProof";
+import Loader from "./ui/Loader.jsx";
 
 const ApplicationForm = () => {
+  const { salaryProof, setSalaryProof } = useContext(FetchSalaryContext);
+  const [loading, setLoading] = useState(false);
+
   // collecting salary data
   const [formData, setFormData] = useState({
     companyName: "",
@@ -20,7 +26,6 @@ const ApplicationForm = () => {
     email: "",
   });
 
-  console.log("formData", formData);
   //-----------------------------------------------------------------------------------------END
 
   const handleChange = (event) => {
@@ -32,9 +37,12 @@ const ApplicationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
+
     try {
       const response = await axios.post("/api/submittedSalary", {
         ...formData,
+        salaryProof: salaryProof,
       });
       if (response.status === 201) {
         alert(response.data.message);
@@ -44,7 +52,9 @@ const ApplicationForm = () => {
         );
         inputFields.forEach((inputField) => (inputField.value = ""));
         document.getElementById("hourlyWage").value = "";
-        // document.getElementById("hourlyWage").inputField = "";
+        setSalaryProof([]);
+
+        setLoading(false);
       } else {
         throw new Error(response.status);
       }
@@ -117,7 +127,7 @@ const ApplicationForm = () => {
 "
                       htmlFor="equipment"
                     >
-                      Equipment <span className="text-red-500">*</span>
+                      Airplane <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="equipment"
@@ -137,7 +147,8 @@ const ApplicationForm = () => {
 "
                         htmlFor="hourlyWage"
                       >
-                        Hourly Wage <span className="text-red-500">*</span>
+                        Hourly Wage ($CAD){" "}
+                        <span className="text-red-500">*</span>
                       </label>
                       <NumericFormat
                         id="hourlyWage"
@@ -159,7 +170,7 @@ const ApplicationForm = () => {
 "
                         htmlFor="perDiem"
                       >
-                        Per Diem
+                        Per Diem ($CAD)
                       </label>
                       <input
                         id="perDiem"
@@ -286,7 +297,7 @@ const ApplicationForm = () => {
                       className="form-textarea text-sm py-2 w-full border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20"
                       rows="5"
                       onChange={handleChange}
-                      placeholder="You can let us know about any bonuses, benefits, or other details you would like to share."
+                      placeholder="You can let us know about any bonuses, benefits, training bond or other details you would like to share."
                     />
                   </div>
                 </div>
@@ -313,12 +324,21 @@ const ApplicationForm = () => {
               </div>
             </div>
 
+            {/* ------------------------------------------------------ */}
+            <UploadSalaryProof />
+            {/* ------------------------------------------------------ */}
+
             <div className="mt-6">
               <button
-                className="btn w-full text-white font-semibold bg-[#2c94c0] hover:bg-[#2c94c0]/80 shadow-sm"
+                className={`btn w-full text-white font-semibold ${
+                  loading
+                    ? "bg-[#2c94c0]/80 cursor-not-allowed"
+                    : "bg-[#2c94c0] hover:bg-[#2c94c0]/80 shadow-sm"
+                }`}
                 type="submit"
+                disabled={loading}
               >
-                Submit
+                {loading ? <Loader /> : "Submit"}
               </button>
             </div>
           </form>

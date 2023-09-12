@@ -30,8 +30,8 @@ function Services() {
 
             {/* Grid */}
             <div className="max-w-2xl mx-auto grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:max-w-none  pb-6 ">
-              {countries.map((country) => (
-                <div className="h-full flex flex-col relative">
+              {countries.map((country, i) => (
+                <div key={i} className="h-full flex flex-col relative">
                   {/* Image */}
                   <div className="mb-4 relative ">
                     {country.countryName === "United States 🇺🇸" ? (

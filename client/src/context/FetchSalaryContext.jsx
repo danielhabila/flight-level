@@ -1,11 +1,12 @@
-import { createContext } from "react";
+import { useState, createContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 export const FetchSalaryContext = createContext();
 
 function FetchSalaryProvider(props) {
-  // const [salaryList, setSalaryList] = useState([]);
+  //this useState is for SalaryProof upload
+  const [salaryProof, setSalaryProof] = useState([]);
 
   const {
     isLoading: loading,
@@ -19,7 +20,6 @@ function FetchSalaryProvider(props) {
     return response.data;
   });
   // ---------------------------------------------------
-  console.log("salaryListFromContext", salaryList);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -35,6 +35,8 @@ function FetchSalaryProvider(props) {
   const value = {
     loading,
     salaryList,
+    salaryProof,
+    setSalaryProof,
   };
 
   return (
