@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import fl from "../images/fl-logo2.png";
 
 function Header() {
   return (
@@ -9,7 +10,10 @@ function Header() {
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
-            <Link className="block group" to="/">
+            <Link className="block " to="/">
+              <img className="h-10 sm:h-11 w-auto" src={fl} alt="site logo" />
+            </Link>
+            {/* <Link className="block group" to="/">
               <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
                 <path
                   className="fill-blue-100 group-hover:fill-white transform duration-150 ease-in-out"
@@ -20,7 +24,7 @@ function Header() {
                   d="M10.807 6.059A10.003 10.003 0 0 1 20 0c5.523 0 10 4.477 10 10 0 4.123-2.496 7.664-6.059 9.193.04-.392.059-.79.059-1.193 0-6.627-5.373-12-12-12-.403 0-.8.02-1.193.059Z"
                 />
               </svg>
-            </Link>
+            </Link> */}
           </div>
 
           {/* Desktop navigation */}
