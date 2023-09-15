@@ -7,8 +7,8 @@ export default function ErrorPage() {
           alt=""
           className="absolute inset-0 -z-10 h-screen w-full object-cover object-top"
         />
-        <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8 ">
-          <div className="bg-black/50 py-8 shadow-xl rounded-xl">
+        <div className="mx-auto max-w-7xl md:px-6 py-32 text-center sm:py-40 lg:px-8 ">
+          <div className="bg-black/50 py-8 shadow-xl md:rounded-xl">
             <p className="text-base font-semibold leading-8 text-white">404</p>
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
               Page not found
@@ -20,7 +20,7 @@ export default function ErrorPage() {
           <div className="mt-10 flex justify-center">
             <a
               href="/"
-              className="text-sm mt-16 uppercase font-semibold leading-7 text-white ring-1 rounded-lg p-1 ring-slate-500"
+              className="text-sm mt-16 uppercase font-semibold leading-7 text-white ring-1 rounded-lg px-2 py-1 ring-slate-500"
             >
               <span aria-hidden="true">&larr;</span> Back to home
             </a>

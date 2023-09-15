@@ -59,8 +59,8 @@ export default function Example() {
               </button> */}
             </div>
             <p className="mt-4 md:text-lg leading-8 text-gray-400 ">
-              Find payscale info from different airlines and corporates. Get a
-              feel of what you can expect from each company.
+              Find payscale info from different airlines and the corporate
+              world. Get a feel of what you can expect from each company.
             </p>
             <dl className="mt-10 ">
               <div id="search-bar" className="sticky">
