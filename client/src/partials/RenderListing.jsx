@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import SalaryStats from "./ui/SalaryStats";
+import AirplaneOptions from "./ui/AirplaneOptions";
 
 export default function RenderListing({ data }) {
   const [firstOfficer, setFirstOfficer] = useState(true);
@@ -51,6 +52,7 @@ export default function RenderListing({ data }) {
                   <p className="text-base text-gray-300 ">
                     {/* ************************************************************************* */}
                     {/* Captain/FO toggle */}
+                    {/* <AirplaneOptions /> */}
                     <div className="flex justify-center max-w-[18rem] m-auto pt-2">
                       <div className="relative flex w-full mx-6 p-1 bg-black shadow-xl rounded-full">
                         <span

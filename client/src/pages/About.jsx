@@ -31,7 +31,8 @@ export default function About() {
               <p className="mt-6 md:text-lg leading-8 text-gray-300 ">
                 My mission? Well, it's all about helping every pro like you
                 build a better career by dishing out the most accurate insights
-                and services possible.
+                and services possible. If you find inaccuracies, please do not
+                hesitate to let me know so we can continually improve.
               </p>
               <p className="mt-6 md:text-lg leading-8 text-gray-300 ">
                 Here's where you come in – use the 'Add your salary' feature to
@@ -39,6 +40,7 @@ export default function About() {
                 site; it's about helping each other out. A number of pilots have
                 already stepped up, and I gotta say, big thanks to them!
               </p>
+
               <p className="mt-6 md:text-lg leading-8 text-gray-300 ">
                 Got some cool ideas for the site or just want to share some
                 info? Hit me up using that 'contact me' button down there at the

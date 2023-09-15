@@ -37,7 +37,7 @@ const submittedSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  flightTime: {
+  schedule: {
     type: String,
     required: false,
   },

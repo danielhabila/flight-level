@@ -50,7 +50,8 @@ export default function UploadSalaryProof() {
         className="block text-sm font-medium mb-1 mt-4 text-white"
         htmlFor="salaryProof"
       >
-        Upload Proof (Offer Letter, T4, etc)
+        Upload Proof (Offer Letter, T4, etc){" "}
+        <span className="text-xs text-gray-500 italic mt-1">- Optional</span>
       </label>
       <div className="mt-2 flex justify-center rounded-lg border border-dashed border-white/25 px-6 py-3">
         <div className="text-center ">
@@ -104,7 +105,7 @@ export default function UploadSalaryProof() {
         </div>
       </div>
       <div className="text-xs text-gray-500 italic mt-1">
-        Your identity will be anonymous. (Optional)
+        Your identity will be anonymous.
       </div>
     </div>
   );

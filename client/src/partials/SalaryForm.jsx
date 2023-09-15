@@ -20,7 +20,7 @@ const ApplicationForm = () => {
     location: "",
     employmentStatus: "New hire",
     yearsAtCompany: "Less than 1 year",
-    flightTime: "",
+    schedule: "",
     notes: "",
     email: "",
   });
@@ -192,12 +192,30 @@ const ApplicationForm = () => {
                       placeholder="80 hours"
                     />
                   </div>
+
+                  <div>
+                    <label
+                      className="block text-sm font-medium mb-1 text-white
+"
+                      htmlFor="schedule"
+                    >
+                      Schedule
+                    </label>
+                    <input
+                      id="schedule"
+                      name="schedule"
+                      className="form-input w-full border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20"
+                      type="text"
+                      onChange={handleChange}
+                      placeholder=""
+                    />{" "}
+                  </div>
                   <div>
                     <label
                       className="block text-sm font-medium mb-1 text-white"
                       htmlFor="location"
                     >
-                      Location <span className="text-red-500">*</span>
+                      Location (Base) <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="location"
@@ -260,23 +278,6 @@ const ApplicationForm = () => {
                         <option>10 </option>
                       </select>
                     </div>
-                  </div>
-
-                  <div>
-                    <label
-                      className="block text-sm font-medium mb-1 text-white
-"
-                      htmlFor="flightTime"
-                    >
-                      Total Flight Time
-                    </label>
-                    <input
-                      id="flightTime"
-                      name="flightTime"
-                      className="form-input w-full border-0 bg-white/5 text-white shadow-md ring-1 ring-white/20"
-                      type="text"
-                      onChange={handleChange}
-                    />{" "}
                   </div>
 
                   <div>
