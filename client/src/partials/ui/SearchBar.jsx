@@ -17,6 +17,7 @@ export default function SearchBar({ handleSearchChange }) {
                 className="form-input py-2 w-full pl-10 bg-transparent border-0 rounded-md shadow-md ring-1 ring-white/10"
                 placeholder="Search airline..."
                 onChange={handleSearchChange}
+                onKeyDown={(e) => e.keyCode === 13 && e.preventDefault()}
               />
               <div className="absolute inset-0 right-auto flex items-center justify-center">
                 <svg

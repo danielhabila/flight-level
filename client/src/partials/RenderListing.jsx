@@ -16,7 +16,7 @@ export default function RenderListing({ data }) {
           <Disclosure as="div" key={oneAirline._id} className="pt-3 ">
             {({ open }) => (
               <>
-                <dt className="border-0 bg-white/5 rounded-md ring-1 ring-white/20 p-5">
+                <dt className="border-0 odd:bg-gradient-to-tr from-gray-900 to-gray-800 rounded-md ring-1 ring-white/20 p-5">
                   <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-100 ">
                     <span className="text-base font-semibold leading-7 ">
                       {oneAirline.airline}
@@ -50,7 +50,7 @@ export default function RenderListing({ data }) {
                 >
                   <p className="text-base text-gray-300 ">
                     {/* ************************************************************************* */}
-                    {/* Pricing toggle */}
+                    {/* Captain/FO toggle */}
                     <div className="flex justify-center max-w-[18rem] m-auto pt-2">
                       <div className="relative flex w-full mx-6 p-1 bg-black shadow-xl rounded-full">
                         <span

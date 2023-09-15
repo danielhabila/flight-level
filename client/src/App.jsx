@@ -29,8 +29,9 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/details" element={<Listing />} />
+        {/* <Route exact path="/" element={<Home />} /> */}
+        <Route exact path="/" element={<Listing />} />
+        {/* <Route path="/details" element={<Listing />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/add-salary" element={<AddSalary />} />
         <Route path="*" element={<ErrorPage />} />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { FetchSalaryContext } from "../context/FetchSalaryContext.jsx";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
@@ -6,9 +6,13 @@ import BgSVG from "../partials/ui/BgSVG";
 import SearchBar from "../partials/ui/SearchBar";
 import RenderListing from "../partials/RenderListing.jsx";
 import Loader from "../partials/ui/Loader.jsx";
+import { IoShare } from "react-icons/io5";
+import ModalShare from "../partials/ModalShare.jsx";
+import { ModalContext } from "../context/ModalContext.jsx";
 
 export default function Example() {
   const { salaryList, loading, error } = useContext(FetchSalaryContext);
+  const { open, setOpen } = useContext(ModalContext);
 
   const [searchText, setSearchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);
@@ -45,9 +49,19 @@ export default function Example() {
 
         <main className="grow py-16 md:py-24">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 py-10">
-            <h2 className="h2 font-cabinet-grotesk text-gray-100 ">
-              Explore Salaries 💸
-            </h2>
+            <div className="flex items-center justify-between">
+              <h2 className="h2 font-cabinet-grotesk text-gray-100 ">
+                Explore Salaries
+              </h2>
+              {/* <button onClick={() => setOpen(!open)}>
+                <ModalShare />
+                <IoShare className="w-7 h-7 text-white" />
+              </button> */}
+            </div>
+            <p className="mt-4 md:text-lg leading-8 text-gray-400 ">
+              Find payscale info from different airlines and corporates. Get a
+              feel of what you can expect from each company.
+            </p>
             <dl className="mt-10 ">
               <div id="search-bar" className="sticky">
                 <SearchBar handleSearchChange={handleSearchChange} />
