@@ -48,18 +48,36 @@ router.post("/", async (req, res) => {
     const newSubmission = await submittedModel.create(salaryForm);
 
     // Send the message to Telegram
-    const message = `New Submission: 
-      Name: ${salaryForm.companyName} 
-      Email: ${salaryForm.email} 
-      Message: ${salaryForm.notes}
-      SalaryProofURLS: ${imageUrls}
-      `;
+    let message = "*New Submission:*\n";
+
+    const fields = [
+      { key: "*Email*", value: salaryForm.email },
+      { key: "*Company Name*", value: salaryForm.companyName },
+      { key: "*Comments/Notes*", value: salaryForm.notes },
+      { key: "*Position*", value: salaryForm.position },
+      { key: "*Equipment*", value: salaryForm.equipment },
+      { key: "*Hourly Wage*", value: salaryForm.hourlyWage },
+      { key: "*Per Diem*", value: salaryForm.perDiem },
+      { key: "*MMG*", value: salaryForm.mmg },
+      { key: "*Location*", value: salaryForm.location },
+      { key: "*Employment Status*", value: salaryForm.employmentStatus },
+      { key: "*Years at Company*", value: salaryForm.yearsAtCompany },
+      { key: "*Schedule*", value: salaryForm.schedule },
+      { key: "*Salary Proof*", value: imageUrls.join(", ") },
+    ];
+
+    fields.forEach(({ key, value }) => {
+      if (value.trim() !== "") {
+        message += `\n${key}: ${value}`;
+      }
+    });
 
     const telegramApiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
 
     const telegramMessageData = {
       chat_id: telegramChatId,
       text: message,
+      parse_mode: "Markdown",
     };
     await axios.post(telegramApiUrl, telegramMessageData);
 

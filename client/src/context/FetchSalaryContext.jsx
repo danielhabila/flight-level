@@ -7,6 +7,7 @@ export const FetchSalaryContext = createContext();
 function FetchSalaryProvider(props) {
   //this useState is for SalaryProof upload
   const [salaryProof, setSalaryProof] = useState([]);
+  const [typeIndex, setTypeIndex] = useState(0);
 
   const {
     isLoading: loading,
@@ -28,6 +29,8 @@ function FetchSalaryProvider(props) {
     salaryList,
     salaryProof,
     setSalaryProof,
+    typeIndex,
+    setTypeIndex,
   };
 
   return (

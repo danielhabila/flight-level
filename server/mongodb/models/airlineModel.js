@@ -13,16 +13,16 @@ const airlineSchema = new mongoose.Schema({
         totalCompensation: String,
       },
     ],
-    firstOfficer: [
-      {
-        experience: String,
-        hourlyRate: String,
-        totalCompensation: String,
-      },
-    ],
+    // firstOfficer: [
+    //   {
+    //     experience: String,
+    //     hourlyRate: String,
+    //     totalCompensation: String,
+    //   },
+    // ],
   },
 });
 
-const airlineModel = mongoose.model("airline", airlineSchema);
+const airlineModel = mongoose.model("newairline", airlineSchema);
 
 export default airlineModel;

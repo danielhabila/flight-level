@@ -6,6 +6,7 @@ import AirplaneOptions from "./ui/AirplaneOptions";
 
 export default function RenderListing({ data }) {
   const [firstOfficer, setFirstOfficer] = useState(true);
+  const [selectedEquipmentIndex, setSelectedEquipmentIndex] = useState(0);
   return (
     <>
       {data?.length === 0 ? (
@@ -27,7 +28,7 @@ export default function RenderListing({ data }) {
                         Starting $
                         {Math.floor(
                           parseFloat(
-                            oneAirline.positions.firstOfficer[0].totalCompensation
+                            oneAirline.airplanes[0].positions?.firstOfficer[0].totalCompensation
                               .replace("$", "")
                               .replace(",", "")
                           ) / 1000
@@ -52,7 +53,6 @@ export default function RenderListing({ data }) {
                   <p className="text-base text-gray-300 ">
                     {/* ************************************************************************* */}
                     {/* Captain/FO toggle */}
-                    {/* <AirplaneOptions /> */}
                     <div className="flex justify-center max-w-[18rem] m-auto pt-2">
                       <div className="relative flex w-full mx-6 p-1 bg-black shadow-xl rounded-full">
                         <span
@@ -93,8 +93,12 @@ export default function RenderListing({ data }) {
                             <div className="py-8">
                               <SalaryStats
                                 mmg={oneAirline.mmg}
-                                equipment={oneAirline.airplane}
+                                equipment={oneAirline.airplanes}
                                 perDiem={oneAirline.perDiem}
+                                selectedEquipmentIndex={selectedEquipmentIndex}
+                                setSelectedEquipmentIndex={
+                                  setSelectedEquipmentIndex
+                                }
                               />
                             </div>
                             <table className="min-w-full divide-y divide-gray-700 ">
@@ -122,7 +126,9 @@ export default function RenderListing({ data }) {
                               </thead>
                               <tbody className="divide-y divide-gray-800 ">
                                 {firstOfficer
-                                  ? oneAirline.positions.firstOfficer?.map(
+                                  ? oneAirline.airplanes[
+                                      selectedEquipmentIndex
+                                    ]?.positions?.firstOfficer?.map(
                                       (one, i) => (
                                         <tr
                                           key={i}
@@ -141,7 +147,9 @@ export default function RenderListing({ data }) {
                                         </tr>
                                       )
                                     )
-                                  : oneAirline.positions.captain?.map((one) => (
+                                  : oneAirline.airplanes[
+                                      selectedEquipmentIndex
+                                    ]?.positions?.captain?.map((one) => (
                                       <tr
                                         // key={one.email}
                                         className="odd:bg-gradient-to-tr from-gray-900 to-gray-800 "
