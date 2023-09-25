@@ -120,7 +120,7 @@ export default function RenderListing({ data }) {
                                     scope="col"
                                     className="px-3 py-3.5 text-center text-sm font-semibold text-gray-200 sm:pl-0 "
                                   >
-                                    Total Compensation ($CAD)
+                                    Annual Compensation ($CAD)
                                   </th>
                                 </tr>
                               </thead>

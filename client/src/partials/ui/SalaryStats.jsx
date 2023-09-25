@@ -16,7 +16,7 @@ export default function SalaryStats({
 
   return (
     <div>
-      <dl className="grid gap-2 sm:gap-5 grid-cols-3 px-2 sm:px-0 text-center">
+      <dl className="grid gap-2 sm:gap-5 grid-cols-3 px-2 sm:px-0 text-center text-sm sm:text-base">
         {stats.map((item) => (
           <div
             key={item.name}
