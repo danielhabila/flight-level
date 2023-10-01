@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { FetchSalaryContext } from "../context/FetchSalaryContext.jsx";
 import axios from "axios";
-import { NumericFormat } from "react-number-format";
 import UploadSalaryProof from "./ui/UploadSalaryProof";
 import Loader from "./ui/Loader.jsx";
 
@@ -338,12 +337,6 @@ const ApplicationForm = () => {
               >
                 {loading ? "Submitting..." : "Submit"}
               </button>
-            </div>
-            <div className="flex mt-5 gap-1">
-              <span className="text-rose-500 text-lg mt-">*</span>
-              <p className="text-xs text-gray-200 italic mt-1">
-                red asterisk means required field.
-              </p>
             </div>
           </form>
         </div>

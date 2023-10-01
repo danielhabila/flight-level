@@ -97,6 +97,9 @@ export default function Example() {
               </div>
               {/* -------------------------------------------------------- */}
             </dl>
+            <p className="mt-10 leading-8 text-gray-400 italic">
+              ** Spot any errors? Please notify us, we are a work in progress :)
+            </p>
           </div>
         </main>
         <Footer />
