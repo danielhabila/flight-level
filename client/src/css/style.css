@@ -20,12 +20,79 @@
     }
 }
 
-body, h1, h2, h3, p, label, input {
+/* body, h1, h2, h3, p, label, input {
     color: white;
-  }
+  } */
   
   input:placeholder-shown {
     font-style: italic;
  }
 
  
+/* ---------------------------------------------------------------- */
+
+.content ol,
+.content ul {
+  list-style: initial;
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+  
+.content blockquote,
+.content dl,
+.content dd,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content hr,
+.content figure,
+.content p,
+.content pre {
+  margin: 1.5rem 0;
+}
+
+.content  p, ol, ul{
+  letter-spacing: 0.3px; /* increase space between characters by 2 pixels */
+  word-spacing: 2.3px; 
+  line-height: 1.8;
+}
+
+.content a {
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity));
+  font-weight: 500;
+}
+
+/* 
+.content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  
+  .content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .content h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  
+  .content h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .content h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .content h6 {
+    font-size: 1rem;
+    font-weight: 600;
+  } */

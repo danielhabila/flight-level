@@ -10,10 +10,10 @@ export default function About() {
         <Header />
 
         <main className="grow py-16 md:py-24">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 py-10">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10">
             <h2 className="h2 font-cabinet-grotesk text-gray-100">About</h2>
             <div>
-              <p className="mt-6 md:text-lg leading-8 text-gray-300 ">
+              <p className="mt-6 md:text-lg leading-8 text-slate-300 ">
                 Hey there, welcome to Flightlevel.fyi – a project I kicked off
                 to help us pilots navigate the aviation world a bit easier. My
                 goal here is simple: provide you with all the info you need to

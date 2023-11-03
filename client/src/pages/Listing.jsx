@@ -47,7 +47,7 @@ export default function Example() {
         <Header />
 
         <main className="grow py-16 md:py-24">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 py-10">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10">
             <div className="flex items-center justify-between">
               <h2 className="h2 font-cabinet-grotesk text-gray-100 ">
                 Explore Salaries

@@ -8,6 +8,8 @@ import About from "./pages/About";
 import AddSalary from "./pages/AddSalary";
 import ContactMe from "./partials/ContactMe";
 import ErrorPage from "./pages/ErrorPage";
+import News from "./pages/News";
+import NewsPost from "./pages/NewsPost";
 
 function App() {
   const location = useLocation();
@@ -29,9 +31,9 @@ function App() {
   return (
     <div>
       <Routes>
-        {/* <Route exact path="/" element={<Home />} /> */}
-        <Route exact path="/" element={<Listing />} />
-        {/* <Route path="/details" element={<Listing />} /> */}
+        <Route exact path="/" element={<News />} />
+        <Route exact path="/salaries" element={<Listing />} />
+        <Route path="/:slug" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
         <Route path="/add-salary" element={<AddSalary />} />
         <Route path="*" element={<ErrorPage />} />

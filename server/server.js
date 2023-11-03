@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import connectDB from "./mongodb/connectDB.js";
 import salaryRoute from "./routes/salaryRoute.js";
 import submittedSalary from "./routes/submittedSalary.js";
+import blogRoute from "./routes/blogRoute.js";
 import cors from "cors";
 const app = express();
 const port = 8080;
@@ -23,6 +24,7 @@ app.use(
 
 app.use("/api/", salaryRoute);
 app.use("/api/submittedSalary", submittedSalary);
+app.use("/api/v1", blogRoute);
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);

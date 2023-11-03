@@ -36,7 +36,7 @@ export default function Footer() {
           <p className="text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
             © {year} Flight Level. All rights reserved
           </p>
-          {/* <a
+          <a
             href="/about"
             className="text-xs leading-5 text-gray-400 md:order-1 md:mt-0 flex hover:text-white"
           >
@@ -57,7 +57,7 @@ export default function Footer() {
                 />
               </svg>
             </span>
-          </a> */}
+          </a>
         </div>
       </footer>
     </>
