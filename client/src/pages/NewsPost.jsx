@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import BgSVG from "../partials/ui/BgSVG";
@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import parse from "html-react-parser";
 import Loader from "../partials/ui/Loader.jsx";
+import moment from "moment";
 
 function NewsPost() {
   const { slug } = useParams();
@@ -21,7 +22,7 @@ function NewsPost() {
     }
   };
 
-  const { data, isLoading, error, isFetching } = useQuery(
+  const { data, isLoading, error } = useQuery(
     {
       queryKey: ["singlePosts"],
       queryFn: getSinglePost,
@@ -29,16 +30,18 @@ function NewsPost() {
     // { staleTime: 3600000, refetchOnmount: false }
   );
 
-  // console.log(data);
+  console.log("data from newsPost", data);
   // ----------------------------------------------------
+
+  function page(data) {
+    const numWords = data && data.content.html.trim().split(/\s+/).length;
+    const wordsPerMinute = 225;
+    return Math.ceil(numWords / wordsPerMinute);
+  }
 
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-
-  // if (!data) {
-  //   return null;
-  // }
 
   return (
     <div className="relative isolate overflow-hidden bg-gray-900">
@@ -66,8 +69,9 @@ function NewsPost() {
                     <div className="flex items-center justify-between my-6">
                       {/* Post date */}
                       <div className="text-xs text-slate-400 uppercase">
-                        <span className="text-sky-500">—</span> Dec 24, 2023{" "}
-                        <span>·</span> 4 Min read
+                        <span className="text-sky-500 uppercase">—</span>{" "}
+                        {data && moment(data.postDate).format("MMM DD, YYYY")}{" "}
+                        <span>·</span> {page(data && data)} MIN READ
                       </div>
                     </div>
                     {/* Share buttons */}
