@@ -35,7 +35,7 @@ function Header() {
             <ul className="flex grow justify-end flex-wrap items-center">
               <li
                 className={`${
-                  pathname.includes("salaries") ? "hidden" : "inline-flex"
+                  !pathname.includes("salaries") ? "inline-flex " : "hidden"
                 }`}
               >
                 <Link
@@ -47,7 +47,7 @@ function Header() {
               </li>
               <li
                 className={`ml-3 sm:ml-6 ${
-                  pathname === "/" ? "hidden" : "inline"
+                  pathname.includes("salaries") ? "inline" : "hidden"
                 }`}
               >
                 <Link
