@@ -39,6 +39,8 @@ jobs:
           echo CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }} >> .env
           echo CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }} >> .env
 
+          echo HYGRAPH_ENDPOINT=${{ secrets.HYGRAPH_ENDPOINT }} >> .env
+
       - name: Install client dependencies
         run: |
           cd client

@@ -39,7 +39,7 @@ function Header() {
                 }`}
               >
                 <Link
-                  className="font-cabinet-grotesk text-sm font-medium text-white hover:underline flex items-center"
+                  className="font-cabinet-grotesk text-sm font-semibold text-white hover:underline flex items-center"
                   to="/salaries"
                 >
                   View Salaries 💸

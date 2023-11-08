@@ -15,7 +15,6 @@ function NewsPost() {
   const getSinglePost = async () => {
     try {
       const response = await axios.get(`/api/v1/single-post/${slug}`);
-      console.log(response.data);
       return response.data.newsPosts[0];
     } catch (error) {
       console.log(error);
@@ -30,7 +29,6 @@ function NewsPost() {
     // { staleTime: 3600000, refetchOnmount: false }
   );
 
-  console.log("data from newsPost", data);
   // ----------------------------------------------------
 
   function page(data) {

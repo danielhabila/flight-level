@@ -185,11 +185,12 @@ export default function RenderListing({ data }) {
                 </>
               )}
             </Disclosure>
-            {i === 5 && (
+            {/* Email collection */}
+            {/* {i === 5 && (
               <div className="pt-3 border-gray-200">
                 <Newsletter heading={"Send me job updates!"} />
               </div>
-            )}
+            )} */}
           </>
         ))
       )}
