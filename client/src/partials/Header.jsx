@@ -42,7 +42,7 @@ function Header() {
                   className="font-cabinet-grotesk text-sm font-semibold text-white hover:underline flex items-center"
                   to="/salaries"
                 >
-                  View Salaries 💸
+                  Payscale info 💸
                 </Link>
               </li>
               <li

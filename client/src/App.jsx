@@ -32,11 +32,12 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<News />} />
-        <Route exact path="/salaries" element={<Listing />} />
-        <Route path="/:slug" element={<NewsPost />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/salaries" element={<Listing />} />
+        <Route path="/news/:slug" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
         <Route path="/add-salary" element={<AddSalary />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <ContactMe />
     </div>

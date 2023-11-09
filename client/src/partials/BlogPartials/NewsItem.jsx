@@ -6,7 +6,7 @@ function NewsItem(props) {
   const excerpt = fetched.split(" ").slice(0, 20).join(" ") + "...";
 
   return (
-    <Link to={props.slug}>
+    <Link to={`/news/${props.slug}`}>
       <div
         className="flex items-start relative group overflow-hidden"
         data-aos="fade-down"

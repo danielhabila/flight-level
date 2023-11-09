@@ -13,7 +13,7 @@ export default function FeaturedPost(props) {
 
               <Link
                 className="relative block group overflow-hidden md:w-1/2 rounded-lg"
-                to={`/${props.featuredBlog.slug}`}
+                to={`/news/${props.featuredBlog.slug}`}
                 data-aos="fade-down"
               >
                 <img
@@ -35,7 +35,7 @@ export default function FeaturedPost(props) {
                   <h2 className="font-extrabold h4 md:text-3xl lg:text-4xl font-playfair-display mb-3">
                     <Link
                       className="text-slate-200 hover:underline hover:decoration-blue-100"
-                      to={`/${props.featuredBlog.slug}`}
+                      to={`/news/${props.featuredBlog.slug}`}
                     >
                       {props.featuredBlog.title}
                     </Link>
