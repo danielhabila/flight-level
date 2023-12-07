@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./css/style.css";
 import Sticky from "sticky-js";
-import Home from "./pages/Home";
-import Listing from "./pages/Listing";
+import Login from "./pages/auth/Login";
 import About from "./pages/About";
-import AddSalary from "./pages/AddSalary";
 import ContactMe from "./partials/ContactMe";
 import ErrorPage from "./pages/ErrorPage";
-import News from "./pages/News";
+import Home from "./pages/Home";
 import NewsPost from "./pages/NewsPost";
+import ResetPassword from "./pages/auth/ResetPassword";
+import CreateAccount from "./pages/auth/CreateAccount";
+import SavedNews from "./pages/SavedNews";
 
 function App() {
   const location = useLocation();
@@ -31,13 +32,19 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<News />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/salaries" element={<Listing />} />
+        <Route exact path="/" element={<Home />} />
+        <Route path="/news" element={<Home />} />
+        <Route path="/saved" element={<SavedNews />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/news/:slug" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
-        <Route path="/add-salary" element={<AddSalary />} />
         <Route path="/*" element={<ErrorPage />} />
+        {/* ------------------------------------------ */}
+        {/* <Route path="/salaries" element={<Listing />} />
+        <Route path="/add-salary" element={<AddSalary />} /> */}
       </Routes>
       <ContactMe />
     </div>

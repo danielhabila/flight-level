@@ -50,7 +50,7 @@ export default function FeaturedPost(props) {
                         props.featuredBlog.content &&
                         props.featuredBlog.content.html
                           .split(" ")
-                          .slice(0, 20)
+                          .slice(0, 16)
                           .join(" ") + "...",
                     }}
                   ></div>

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import axios from "axios";
-import FetchSalaryProvider from "./context/FetchSalaryContext";
+// import FetchSalaryProvider from "./context/FetchSalaryContext";
 import ModalContextProvider from "./context/ModalContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -23,9 +23,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
     <QueryClientProvider client={queryClient}>
       <ModalContextProvider>
-        <FetchSalaryProvider>
-          <App />
-        </FetchSalaryProvider>
+        {/* <FetchSalaryProvider> */}
+        <App />
+        {/* </FetchSalaryProvider> */}
       </ModalContextProvider>
     </QueryClientProvider>
   </Router>
