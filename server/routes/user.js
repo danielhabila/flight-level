@@ -58,6 +58,20 @@ router.post("/login", async (req, res) => {
     console.log(error);
   }
 });
+// -------------------------------------
+export const verifyToken = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (authHeader) {
+    jwt.verify(authHeader, process.env.JWT_SECRET_KEY, (err) => {
+      if (err) return res.sendStatus(403); // user not authorized
+
+      next();
+    });
+  } else {
+    res.sendStatus(401);
+  }
+};
+
 export { router as userRouter };
 // -----------------------------------------------------
 

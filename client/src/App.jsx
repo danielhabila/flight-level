@@ -2,14 +2,12 @@ import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./css/style.css";
 import Sticky from "sticky-js";
-import Login from "./pages/auth/Login";
+import Auth from "./pages/Auth";
 import About from "./pages/About";
 import ContactMe from "./partials/ContactMe";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import NewsPost from "./pages/NewsPost";
-import ResetPassword from "./pages/auth/ResetPassword";
-import CreateAccount from "./pages/auth/CreateAccount";
 import SavedNews from "./pages/SavedNews";
 
 function App() {
@@ -36,15 +34,15 @@ function App() {
         <Route path="/news" element={<Home />} />
         <Route path="/saved" element={<SavedNews />} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/create-account" element={<CreateAccount />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/auth" element={<Auth />} />
+        {/* <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/reset-request" element={<ResetRequest />} />
+        <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/verify" element={<OTPInput />} /> */}
+
         <Route path="/news/:slug" element={<NewsPost />} />
         <Route path="/about" element={<About />} />
         <Route path="/*" element={<ErrorPage />} />
-        {/* ------------------------------------------ */}
-        {/* <Route path="/salaries" element={<Listing />} />
-        <Route path="/add-salary" element={<AddSalary />} /> */}
       </Routes>
       <ContactMe />
     </div>

@@ -6,6 +6,7 @@ import submittedSalary from "./routes/submittedSalary.js";
 import blogRoute from "./routes/blogRoute.js";
 import { userRouter } from "./routes/user.js";
 import { savedNewsRouter } from "./routes/savedNewsRoute.js";
+import nodemailerRoute from "./routes/nodemailerRoute.js";
 
 import cors from "cors";
 const app = express();
@@ -30,6 +31,7 @@ app.use("/api/submittedSalary", submittedSalary);
 app.use("/api/v1", blogRoute);
 app.use("/auth", userRouter);
 app.use("/api/savedNews", savedNewsRouter);
+app.use("/api/v3", nodemailerRoute);
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);

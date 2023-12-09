@@ -1,23 +1,28 @@
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export const MatchesContext = createContext();
+export const GetIdsContext = createContext();
 
 function GetIdsProvider(props) {
-  // PENDING MATCHES --------------------------------------------------
+  const [currentUserId, setCurrentUserId] = useState(null);
 
+  useEffect(() => {
+    const getUserId = () => {
+      return window.localStorage.getItem("userId");
+    };
+    setCurrentUserId(getUserId());
+  }, []);
+  // ------------------------------ Fetching savedIds
   const {
     isLoading: loading,
-    data,
+    data: fetchedSavedIds,
     error,
   } = useQuery(
     ["getIds"],
     async () => {
-      console.log("userObjectFromInbox", userObject);
-
-      const response = await axios.get("/api/getIds", {
-        params: userObject,
+      const response = await axios.get("/api/savedNews/getIds", {
+        params: { currentUserId: currentUserId },
       });
       if (!response === 200) {
         throw new Error("Network response was not ok");
@@ -25,41 +30,20 @@ function GetIdsProvider(props) {
       return response.data;
     },
     {
-      enabled: !!userObject, // Enable the query only when userObject is not null
+      enabled: !!currentUserId, // Enable the query only when userObject is not null
     }
   );
 
-  const createConversation = async (inboundReqGoogleId) => {
-    const response = await axios.post("/conversation", [
-      userObject.googleId,
-      inboundReqGoogleId,
-    ]);
-
-    console.log(inboundReqGoogleId);
-    const response2 = await axios.patch("/api/match-accepted", {
-      userObject,
-      inboundReqGoogleId,
-    });
-
-    if (response.status == 201 && response2.status == 201) {
-      return alert("Match was successful!");
-    } else {
-      throw new Error("Network response was not ok");
-    }
-    // console.log(response.data);
-  };
-
   const value = {
-    conversations,
-    userObject,
-    data,
-    createConversation,
+    fetchedSavedIds,
+    currentUserId,
+    loading,
   };
   return (
-    <MatchesContext.Provider value={value}>
+    <GetIdsContext.Provider value={value}>
       {props.children}
-    </MatchesContext.Provider>
+    </GetIdsContext.Provider>
   );
 }
 
-export default MatchesProvider;
+export default GetIdsProvider;

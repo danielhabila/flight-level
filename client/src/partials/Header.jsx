@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import fl from "../images/fl-logo2.png";
 import { useCookies } from "react-cookie";
+import { BookmarkIcon as BookmarkIconSolid } from "@heroicons/react/24/solid";
+import { RecoveryContext } from "../context/RecoveryContext";
 
 function Header() {
   const location = useLocation();
   const { pathname } = location;
+  const { setPage } = useContext(RecoveryContext);
 
   const [cookies, setCookies] = useCookies(["access_token"]);
-  console.log("cookies", cookies);
+  // console.log("cookies", cookies);
 
   const logout = async () => {
     setCookies("access_token");
@@ -22,7 +25,7 @@ function Header() {
           <div className="shrink-0 mr-4">
             {/* Logo */}
             <Link className="block " to="/">
-              <img className="h-10 sm:h-11 w-auto" src={fl} alt="site logo" />
+              <img className="h-10 sm:h-12 w-auto" src={fl} alt="site logo" />
             </Link>
           </div>
 
@@ -35,7 +38,8 @@ function Header() {
                 cookies.access_token === "undefined" ? (
                   <Link
                     className="btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
-                    to="/login"
+                    onClick={() => setPage("login")}
+                    to="/auth"
                   >
                     Login
                     <span className="tracking-normal text-blue-800 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2 hidden md:inline-flex">
@@ -50,12 +54,17 @@ function Header() {
                     </span>
                   </Link>
                 ) : (
-                  <Link
-                    className="btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
-                    onClick={logout}
-                  >
-                    Logout!
-                  </Link>
+                  <div className="flex grow justify-end flex-wrap items-center">
+                    <Link to="/saved">
+                      <BookmarkIconSolid className=" w-8 text-white hover:text-white/80" />
+                    </Link>
+                    <Link
+                      className="ml-4 btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
+                      onClick={logout}
+                    >
+                      Logout!
+                    </Link>
+                  </div>
                 )}
               </li>
             </ul>
