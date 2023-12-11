@@ -8,6 +8,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
 import { useAuth0 } from "@auth0/auth0-react";
+import PrivateRoutes from "./pages/PrivateRoutes";
 
 function App() {
   const location = useLocation();
@@ -33,11 +34,10 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/news" element={<Home />} />
-        <Route
-          path="/account"
-          element={isAuthenticated ? <Account /> : navigate("/")}
-        />
-        {/* <Route path="/account" element={<Account />} /> */}
+
+        <Route element={<PrivateRoutes />}>
+          <Route path="/account" element={<Account />} />
+        </Route>
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <ContactMe />

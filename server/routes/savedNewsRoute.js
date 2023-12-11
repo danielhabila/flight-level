@@ -24,7 +24,7 @@ router.get("/getIds", async (req, res) => {
 router.patch("/add", async (req, res) => {
   try {
     const { currentUserEmail, savedNewsId } = req.body;
-    console.log("req.body", req.body);
+
     const filter = { email: currentUserEmail };
     const update = { $push: { savedIds: savedNewsId } };
     const options = { new: true };
@@ -65,20 +65,7 @@ router.patch("/remove", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const { fetchedSavedIds: postIds } = req.query;
-    console.log("fetchedSavedIds", postIds);
-    // const postIds = fetchedSavedIds.split(",");
-    // console.log("postIds", postIds);
 
-    // ------------------------------
-    // } catch (error) {
-    //   res.status(400).json({ message: error.message });
-    // }
-    // ------------------------------
-    // const postIds = [
-    //   "clps3d74q312f0bsuwbh3k4jp",
-    //   "cloo0xo94f8zt0bsktcjme763",
-    //   "clonwbamif1zz0bu4n8o0p17h",
-    // ];
     // -----------------------
     const query = gql`
       query BlogPosts($ids: [ID!]!) {

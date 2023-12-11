@@ -30,8 +30,6 @@ function GetIdsProvider(props) {
     }
   );
 
-  console.log("fetchedSavedIds", fetchedSavedIds);
-
   const value = {
     fetchedSavedIds,
     currentUserEmail,

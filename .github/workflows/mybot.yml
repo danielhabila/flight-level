@@ -28,6 +28,12 @@ jobs:
             server/package.json
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/package.json') }}
 
+      - name: Create env file in client
+        run: |
+          cd client
+          echo VITE_AUTH0_DOMAIN=${{ secrets.VITE_AUTH0_DOMAIN }} >> .env
+          echo VITE_AUTH0_CLIENTID=${{ secrets.VITE_AUTH0_CLIENTID }} >> .env
+
       - name: Create env file in server
         run: |
           cd server

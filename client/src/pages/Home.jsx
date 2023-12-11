@@ -3,6 +3,7 @@ import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import BgSVG from "../partials/ui/BgSVG";
 import NewsList from "../partials/BlogPartials/NewsList";
+import Hero from "../partials/Hero";
 
 export default function Home() {
   // ---------------------------Search---------------------------
@@ -14,6 +15,7 @@ export default function Home() {
         <Header />
 
         <main className=" grow py-16 md:py-24">
+          <Hero />
           <NewsList />
         </main>
         <Footer />

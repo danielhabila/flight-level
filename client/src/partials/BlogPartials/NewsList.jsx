@@ -54,8 +54,8 @@ function NewsList() {
 
   return (
     <section>
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 py-14">
-        <h2 className="h2 font-cabinet-grotesk text-gray-100 pb-2 mb-16 border-b border-gray-700">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 py-8">
+        <h2 className="h4 font-cabinet-grotesk text-gray-100 pb-2 mb-10 border-b border-gray-700">
           Latest Updates
         </h2>
 
@@ -65,17 +65,6 @@ function NewsList() {
           </div>
         ) : (
           <div>
-            {/*  Featured Post */}
-            {/* {featuredBlog && <FeaturedPost featuredBlog={featuredBlog} />} */}
-
-            {/* Articles list */}
-            {/* <h4
-              className="h4 pb-4 border-b border-gray-700 text-white"
-              data-aos="fade-up"
-            >
-              Latest
-            </h4> */}
-
             {data &&
               data.newsPosts.map((item) => {
                 const date = moment(item.postDate)
@@ -84,7 +73,7 @@ function NewsList() {
                   .replace("ago", "");
 
                 return (
-                  <div className="py-2 ">
+                  <div className="py-1.5 " key={item.id}>
                     <NewsItem
                       allProps={item}
                       key={item.id}

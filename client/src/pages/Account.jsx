@@ -12,8 +12,6 @@ import NewsItem from "../partials/BlogPartials/NewsItem.jsx";
 export default function Account() {
   const { fetchedSavedIds, loading } = useContext(GetIdsContext);
 
-  console.log("fetchedSavedIds from account", fetchedSavedIds);
-
   const { data, isLoading, error } = useQuery(
     ["posts"],
     async () => {
@@ -26,7 +24,7 @@ export default function Account() {
       return response.data;
     },
     {
-      enabled: !loading,
+      enabled: !loading && fetchedSavedIds.length > 0,
     }
   );
 
@@ -66,7 +64,7 @@ export default function Account() {
               {/* Content here ----------------------------*/}
 
               <div className="mx-auto max-w-4xl px-4 sm:px-6 py-14">
-                <h2 className="h2 font-cabinet-grotesk text-gray-100 pb-2 mb-16 border-b border-gray-700">
+                <h2 className="h4 sm:text-3xl font-cabinet-grotesk text-gray-100 pb-2 mb-16 border-b border-gray-700">
                   Saved
                 </h2>
 
@@ -76,17 +74,17 @@ export default function Account() {
                   </div>
                 ) : (
                   <div>
-                    {data &&
+                    {fetchedSavedIds.length > 0 ? ( // Check if fetchedSavedIds is not empty
+                      data &&
                       data.newsPosts.map((item) => {
                         const date = moment(item.postDate)
                           .locale("custom")
                           .fromNow()
                           .replace("ago", "");
                         return (
-                          <div className="py-2 ">
+                          <div className="py-2" key={item.id}>
                             <NewsItem
                               allProps={item}
-                              key={item.id}
                               id={item.id}
                               title={item.title}
                               slug={item.slug}
@@ -96,7 +94,28 @@ export default function Account() {
                             />
                           </div>
                         );
-                      })}
+                      })
+                    ) : (
+                      <div className="grid place-items-center h3 h-fit text-gray-400 gap-10">
+                        <span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="w-28 h-28"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M3 3l1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 011.743-1.342 48.507 48.507 0 0111.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664L19.5 19.5"
+                            />
+                          </svg>
+                        </span>
+                        You have no saved items
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
