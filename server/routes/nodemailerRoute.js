@@ -5,15 +5,6 @@ import * as dotenv from "dotenv";
 dotenv.config();
 const router = express.Router();
 
-router.post("/send-recovery-email", async (req, res) => {
-  try {
-    const response = await sendEmail(req.body);
-    res.send(response.message);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-});
-
 async function sendEmail({ recipient_email, OTP }) {
   // First, define send settings by creating a new transporter
   let transporter = nodemailer.createTransport({
@@ -67,10 +58,19 @@ async function sendEmail({ recipient_email, OTP }) {
       console.log(error);
       return res.json({ message: "An error has occured" });
     } else {
-      console.log("Email sent successfully");
+      console.log("Email sent successfully: ");
       return res.json({ message: "Email sent succesfuly" });
     }
   });
 }
+
+router.post("/send-recovery-email", async (req, res) => {
+  try {
+    await sendEmail(req.body);
+    res.sendStatus(200);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
 
 export default router;

@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./css/style.css";
 import Sticky from "sticky-js";
-import Auth from "./pages/Auth";
 import About from "./pages/About";
 import ContactMe from "./partials/ContactMe";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
-import NewsPost from "./pages/NewsPost";
-import SavedNews from "./pages/SavedNews";
+import Account from "./pages/Account";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
     // eslint-disable-next-line no-unused-vars
@@ -32,16 +33,11 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/news" element={<Home />} />
-        <Route path="/saved" element={<SavedNews />} />
-
-        <Route path="/auth" element={<Auth />} />
-        {/* <Route path="/create-account" element={<CreateAccount />} />
-        <Route path="/reset-request" element={<ResetRequest />} />
-        <Route path="/change-password" element={<ChangePassword />} />
-        <Route path="/verify" element={<OTPInput />} /> */}
-
-        <Route path="/news/:slug" element={<NewsPost />} />
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/account"
+          element={isAuthenticated ? <Account /> : navigate("/")}
+        />
+        {/* <Route path="/account" element={<Account />} /> */}
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <ContactMe />

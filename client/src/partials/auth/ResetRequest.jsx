@@ -6,7 +6,9 @@ import axios from "axios";
 export default function ResetRequest() {
   const { setEmail, setPage, email, setOTP } = useContext(RecoveryContext);
 
-  function navigateToOtp() {
+  function navigateToOtp(event) {
+    event.preventDefault();
+
     if (email) {
       const OTP = Math.floor(Math.random() * 9000 + 1000);
       console.log(OTP);
@@ -17,7 +19,7 @@ export default function ResetRequest() {
           recipient_email: email,
         })
         .then(setPage("otp"))
-        .catch(console.log);
+        .catch((e) => console.log(e));
       return;
     }
     return alert("Please enter your email");
@@ -29,7 +31,7 @@ export default function ResetRequest() {
       </h1>
 
       <div className="max-w-md mx-auto">
-        <form>
+        <form onSubmit={navigateToOtp}>
           <div className="space-y-4">
             <div>
               <label
@@ -50,7 +52,8 @@ export default function ResetRequest() {
           <div className="mt-6">
             <button
               className="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-sm group"
-              onClick={() => navigateToOtp()}
+              // onClick={() => navigateToOtp()}
+              type="submit"
             >
               Send Verification
               <span className="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">

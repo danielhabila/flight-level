@@ -11,7 +11,7 @@ export default function Login() {
 
   // collecting salary data
   const [formData, setFormData] = useState({
-    username: "",
+    usernameOrEmail: "",
     password: "",
   });
 
@@ -37,13 +37,12 @@ export default function Login() {
       });
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userId", response.data.userId);
-      setLoading(false);
+
       navigate("/");
     } catch (error) {
-      alert(
-        "Something went wrong, please try again. If problem persists please email us using the Contact me button at the bottom right of your screen. Thank you!"
-      );
+      alert("Something went wrong, please try again.");
       console.log(error.message);
+    } finally {
       setLoading(false);
     }
   };
@@ -62,12 +61,12 @@ export default function Login() {
               <div className="">
                 <label
                   className="block text-sm text-slate-300 font-medium mb-1"
-                  htmlFor="username"
+                  htmlFor="usernameOrEmail"
                 >
-                  Username
+                  Username/Email
                 </label>
                 <input
-                  id="username"
+                  id="usernameOrEmail"
                   className="form-input w-full"
                   type="text"
                   onChange={handleChange}

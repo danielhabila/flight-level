@@ -1,18 +1,17 @@
 import React, { useState, useContext } from "react";
-import Header from "../Header.jsx";
-import Footer from "../Footer.jsx";
-import BgSVG from "../ui/BgSVG.jsx";
 import { Link } from "react-router-dom";
-import Illustration from "../../images/hero-illustration.svg";
 import axios from "axios";
 import { RecoveryContext } from "../../context/RecoveryContext";
+import { useCookies } from "react-cookie";
 
 export default function Signup() {
   const { setPage } = useContext(RecoveryContext);
   const [loading, setLoading] = useState(false);
+  const [_, setCookies] = useCookies(["access_token"]);
 
   // collecting salary data
   const [formData, setFormData] = useState({
+    email: "",
     username: "",
     password: "",
   });
@@ -36,24 +35,26 @@ export default function Signup() {
       });
       if (response.status === 201) {
         alert(response.data.message);
-
-        const inputFields = document.querySelectorAll(
-          "input[type='text'],input[type='number'], textarea"
-        );
-        inputFields.forEach((inputField) => (inputField.value = ""));
-        // document.getElementById("hourlyWage").value = "";
-
-        setLoading(false);
+        const loginResponse = await axios.post("/auth/login", {
+          usernameOrEmail: formData.username, // Assuming username is used for login
+          password: formData.password,
+        });
+        if (loginResponse.status === 200) {
+          alert("login successful!");
+          // Optionally, you can store user information or tokens as needed
+          setCookies("access_token", loginResponse.data.token);
+          window.localStorage.setItem("userId", loginResponse.data.userId);
+          navigate("/");
+        } else {
+          throw new Error(loginResponse.data.message || "Login failed");
+        }
       } else {
-        setLoading(false);
         throw new Error(response.data.message);
-        // throw new Error(response.status);
       }
     } catch (error) {
-      alert(
-        "Something went wrong, please try again. If problem persists please email us using the Contact me button at the bottom right of your screen. Thank you!"
-      );
+      alert("Something went wrong, please try again.");
       console.log(error.message);
+    } finally {
       setLoading(false);
     }
   };
@@ -61,12 +62,27 @@ export default function Signup() {
   return (
     <div className="max-w-3xl mx-auto text-center pb-12">
       <h1 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pt-32 pb-12 md:pt-40 md:pb-20">
-        Create your free account
+        Create an account
       </h1>
 
       <div className="max-w-sm mx-auto">
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
+            <div className="">
+              <label
+                className="block text-sm text-slate-300 font-medium mb-1"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                className="form-input w-full"
+                type="email"
+                onChange={handleChange}
+                required
+              />
+            </div>
             <div className="">
               <label
                 className="block text-sm text-slate-300 font-medium mb-1"

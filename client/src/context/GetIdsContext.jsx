@@ -1,18 +1,14 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const GetIdsContext = createContext();
 
 function GetIdsProvider(props) {
-  const [currentUserId, setCurrentUserId] = useState(null);
+  const { isAuthenticated, user } = useAuth0();
+  const currentUserEmail = isAuthenticated ? user.email : null;
 
-  useEffect(() => {
-    const getUserId = () => {
-      return window.localStorage.getItem("userId");
-    };
-    setCurrentUserId(getUserId());
-  }, []);
   // ------------------------------ Fetching savedIds
   const {
     isLoading: loading,
@@ -22,7 +18,7 @@ function GetIdsProvider(props) {
     ["getIds"],
     async () => {
       const response = await axios.get("/api/savedNews/getIds", {
-        params: { currentUserId: currentUserId },
+        params: { currentUserEmail: currentUserEmail },
       });
       if (!response === 200) {
         throw new Error("Network response was not ok");
@@ -30,13 +26,15 @@ function GetIdsProvider(props) {
       return response.data;
     },
     {
-      enabled: !!currentUserId, // Enable the query only when userObject is not null
+      enabled: !!currentUserEmail, // Enable the query only when userObject is not null
     }
   );
 
+  console.log("fetchedSavedIds", fetchedSavedIds);
+
   const value = {
     fetchedSavedIds,
-    currentUserId,
+    currentUserEmail,
     loading,
   };
   return (

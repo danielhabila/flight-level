@@ -2,7 +2,6 @@ import express from "express";
 import * as dotenv from "dotenv";
 import { request, gql } from "graphql-request";
 import userModel from "../mongodb/models/userModel.js";
-import { verifyToken } from "./user.js";
 dotenv.config();
 
 const router = express.Router();
@@ -10,9 +9,9 @@ const router = express.Router();
 // -------------------------------------- Get ids of saved news
 router.get("/getIds", async (req, res) => {
   try {
-    const currentUserId = req.query.currentUserId;
+    const currentUserEmail = req.query.currentUserEmail;
 
-    const currentUser = await userModel.findOne({ userId: currentUserId });
+    const currentUser = await userModel.findOne({ email: currentUserEmail });
     const savedIds = currentUser.savedIds; // get the savedNewsIds array
 
     res.status(200).json(savedIds);
@@ -22,11 +21,11 @@ router.get("/getIds", async (req, res) => {
 });
 
 // -------------------------------------- Adding to savedIds array in my mongodb document
-router.patch("/add", verifyToken, async (req, res) => {
+router.patch("/add", async (req, res) => {
   try {
-    const { currentUserId, savedNewsId } = req.body;
-
-    const filter = { userId: currentUserId };
+    const { currentUserEmail, savedNewsId } = req.body;
+    console.log("req.body", req.body);
+    const filter = { email: currentUserEmail };
     const update = { $push: { savedIds: savedNewsId } };
     const options = { new: true };
 
@@ -43,11 +42,11 @@ router.patch("/add", verifyToken, async (req, res) => {
 });
 // -------------------------------------- Fetching data from hygraph using Ids from mongodb
 
-router.patch("/remove", verifyToken, async (req, res) => {
+router.patch("/remove", async (req, res) => {
   try {
-    const { currentUserId, savedNewsId } = req.body;
+    const { currentUserEmail, savedNewsId } = req.body;
 
-    const filter = { userId: currentUserId };
+    const filter = { email: currentUserEmail };
     const update = { $pull: { savedIds: savedNewsId } };
     const options = { new: true };
 
@@ -65,12 +64,22 @@ router.patch("/remove", verifyToken, async (req, res) => {
 // -------------------------------------- Fetching data from hygraph using Ids from mongodb
 router.get("/", async (req, res) => {
   try {
-    // const postId = "clps3d74q312f0bsuwbh3k4jp";
-    const postIds = [
-      "clps3d74q312f0bsuwbh3k4jp",
-      //   "cloo0xo94f8zt0bsktcjme763",
-      //   "clonwbamif1zz0bu4n8o0p17h",
-    ];
+    const { fetchedSavedIds: postIds } = req.query;
+    console.log("fetchedSavedIds", postIds);
+    // const postIds = fetchedSavedIds.split(",");
+    // console.log("postIds", postIds);
+
+    // ------------------------------
+    // } catch (error) {
+    //   res.status(400).json({ message: error.message });
+    // }
+    // ------------------------------
+    // const postIds = [
+    //   "clps3d74q312f0bsuwbh3k4jp",
+    //   "cloo0xo94f8zt0bsktcjme763",
+    //   "clonwbamif1zz0bu4n8o0p17h",
+    // ];
+    // -----------------------
     const query = gql`
       query BlogPosts($ids: [ID!]!) {
         newsPosts(where: { id_in: $ids }) {

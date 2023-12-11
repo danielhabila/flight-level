@@ -1,19 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { BookmarkIcon as BookmarkIconOutline } from "@heroicons/react/24/outline";
 import { BookmarkIcon as BookmarkIconSolid } from "@heroicons/react/24/solid";
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 import { GetIdsContext } from "../../context/GetIdsContext";
-import { useCookies } from "react-cookie";
-
-// export const getUserId = () => {
-//   return window.localStorage.getItem("userId");
-// };
-// const currentUserId = getUserId();
 
 export default function NewsItem(props) {
-  const { fetchedSavedIds, currentUserId, loading } = useContext(GetIdsContext);
-  const [cookies] = useCookies(["access_token"]);
+  const { isAuthenticated, user } = useAuth0();
+  const { fetchedSavedIds, currentUserEmail, loading } =
+    useContext(GetIdsContext);
 
   const isArticleSaved = (id) => {
     return fetchedSavedIds?.includes(id);
@@ -31,29 +27,17 @@ export default function NewsItem(props) {
     try {
       if (isSaved) {
         // If already saved, remove from saved articles
-        await axios.patch(
-          "/api/savedNews/remove",
-          {
-            currentUserId,
-            savedNewsId,
-          },
-          {
-            headers: { authorization: cookies.access_token },
-          }
-        );
+        await axios.patch("/api/savedNews/remove", {
+          currentUserEmail,
+          savedNewsId,
+        });
         setIsSaved(false);
       } else {
         // If not saved, add to saved articles
-        const response = await axios.patch(
-          "/api/savedNews/add",
-          {
-            currentUserId,
-            savedNewsId,
-          },
-          {
-            headers: { authorization: cookies.access_token },
-          }
-        );
+        const response = await axios.patch("/api/savedNews/add", {
+          currentUserEmail,
+          savedNewsId,
+        });
         if (response.status === 200) {
           setIsSaved(true);
         }
@@ -62,6 +46,10 @@ export default function NewsItem(props) {
       console.log(err);
     }
   };
+  // initializing the isSaved state when the component mounts.
+  useEffect(() => {
+    setIsSaved(isArticleSaved(props.id));
+  }, [props.id, fetchedSavedIds]);
 
   return (
     <>
@@ -115,7 +103,9 @@ export default function NewsItem(props) {
                 </span>
               </div>
               <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
-                <span className="text-slate-500 text-xs">{props.postDate}</span>
+                <span className="text-slate-500 text-xs italic">
+                  {props.postDate}
+                </span>
               </div>
 
               {/* <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
@@ -128,7 +118,13 @@ export default function NewsItem(props) {
             <button
               className={`text-xs text-slate-400 font-semibold text-center h-12 w-12 border border-slate-700 rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-100 dark:outline-indigo-500/10 `}
               // disabled={isSaved}
-              onClick={() => saveArticle(props.id)}
+              onClick={() => {
+                if (!isAuthenticated) {
+                  alert("You must be logged in to save articles.");
+                } else {
+                  saveArticle(props.id);
+                }
+              }}
             >
               {isSaved ? (
                 <BookmarkIconSolid className="h-6 w-6" />

@@ -5,7 +5,6 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import FeaturedPost from "./FeaturedPost";
 import Loader from "../ui/Loader.jsx";
-import NewsItem2 from "./NewsItem.jsx";
 
 function NewsList() {
   const getPosts = async () => {
@@ -24,7 +23,6 @@ function NewsList() {
     }
     // { staleTime: 3600000, refetchOnmount: false }
   );
-  console.log("allNews", data);
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -32,6 +30,27 @@ function NewsList() {
 
   // Extract the last blog post from the data array
   const featuredBlog = data && data.newsPosts[data.newsPosts.length - 1];
+
+  moment.locale("custom", {
+    relativeTime: {
+      future: "in %s",
+      past: "%s ago",
+      s: "now",
+      ss: "now",
+      m: "now",
+      mm: "%dmin",
+      h: "h",
+      hh: "%dh",
+      d: "1d",
+      dd: "%dd",
+      w: "1w",
+      ww: "%dw",
+      M: "30d+",
+      MM: "30d+",
+      y: "1yr",
+      yy: "2yr",
+    },
+  });
 
   return (
     <section>
@@ -59,7 +78,10 @@ function NewsList() {
 
             {data &&
               data.newsPosts.map((item) => {
-                const date = moment(item.postDate).format("MMM DD, YYYY");
+                const date = moment(item.postDate)
+                  .locale("custom")
+                  .fromNow()
+                  .replace("ago", "");
 
                 return (
                   <div className="py-2 ">
