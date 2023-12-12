@@ -74,7 +74,7 @@ export default function Account() {
                   </div>
                 ) : (
                   <div>
-                    {fetchedSavedIds.length > 0 ? ( // Check if fetchedSavedIds is not empty
+                    {fetchedSavedIds?.length > 0 ? ( // Check if fetchedSavedIds is not empty
                       data &&
                       data.newsPosts.map((item) => {
                         const date = moment(item.postDate)
