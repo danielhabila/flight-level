@@ -83,7 +83,7 @@ export default function NewsItem(props) {
             </h2>
             {/* Footer */}
             <footer className="flex flex-wrap text-sm">
-              <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
+              {/* <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                 <a
                   className="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
                   href="#0"
@@ -94,7 +94,7 @@ export default function NewsItem(props) {
                       : "flightlevel.fyi"}
                   </div>
                 </a>
-              </div>
+              </div> */}
               <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
                 <span className="text-slate-500 text-[0.8rem]">
                   {props.allProps.visibleBaseUrl

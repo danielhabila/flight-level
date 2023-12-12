@@ -10,7 +10,7 @@ function Hero() {
           {/* Copy */}
           <div className="md:pr-32">
             <h1 className="h3 md:text-4xl font-aspekta bg-clip-text text-transparent bg-gradient-to-tr from-indigo-500 via-sky-300 to-slate-200 pb-6">
-              A community for aviation geeks {"  "}✈
+              A Hub For Aviation Geeks {"  "}✈
             </h1>
             <p className="text-md md:text-lg text-slate-400 mb-8">
               Carefully selected stories, videos, tools, and resources to keep
