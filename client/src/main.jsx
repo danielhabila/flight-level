@@ -5,8 +5,8 @@ import App from "./App";
 import axios from "axios";
 import { Auth0Provider } from "@auth0/auth0-react";
 import GetIdsProvider from "./context/GetIdsContext";
-import ModalContextProvider from "./context/ModalContext";
 import RecoveryProvider from "./context/RecoveryContext";
+import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient({
@@ -24,23 +24,23 @@ if (process.env.NODE_ENV === "development") {
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
     <QueryClientProvider client={queryClient}>
-      <ModalContextProvider>
-        <Auth0Provider
-          domain={import.meta.env.VITE_AUTH0_DOMAIN}
-          clientId={import.meta.env.VITE_AUTH0_CLIENTID}
-          authorizationParams={{
-            redirect_uri: window.location.origin,
-          }}
-          useRefreshTokens={true}
-          cacheLocation="localstorage"
-        >
-          <GetIdsProvider>
-            <RecoveryProvider>
+      <Auth0Provider
+        domain={import.meta.env.VITE_AUTH0_DOMAIN}
+        clientId={import.meta.env.VITE_AUTH0_CLIENTID}
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+        }}
+        useRefreshTokens={true}
+        cacheLocation="localstorage"
+      >
+        <GetIdsProvider>
+          <RecoveryProvider>
+            <HelmetProvider>
               <App />
-            </RecoveryProvider>
-          </GetIdsProvider>
-        </Auth0Provider>
-      </ModalContextProvider>
+            </HelmetProvider>
+          </RecoveryProvider>
+        </GetIdsProvider>
+      </Auth0Provider>
     </QueryClientProvider>
   </Router>
 );

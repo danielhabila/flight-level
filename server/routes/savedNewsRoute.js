@@ -85,7 +85,6 @@ router.get("/", async (req, res) => {
 
     const graphqlAPI = process.env.HYGRAPH_ENDPOINT;
     const results = await request(graphqlAPI, query, { ids: postIds });
-    console.log("single post", results);
 
     res.send(results);
   } catch (error) {

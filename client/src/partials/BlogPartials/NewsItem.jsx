@@ -115,9 +115,53 @@ export default function NewsItem(props) {
           </div>
           {/* Upvote button */}
           <div className="shrink-0">
+            {isSaved ? (
+              <button
+                className="text-xs font-semibold text-center h-12 w-12 border border-[#37BDF7] rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-100 dark:outline-indigo-500/10"
+                onClick={() => {
+                  if (!isAuthenticated) {
+                    alert("You must be logged in to save articles.");
+                  } else {
+                    saveArticle(props.id);
+                  }
+                }}
+              >
+                <svg
+                  className="inline-flex fill-[#2fbefb] mt-1.5 mb-1.5"
+                  width="12"
+                  height="6"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="m0 6 6-6 6 6z" />
+                </svg>
+              </button>
+            ) : (
+              <button
+                className="text-xs font-semibold text-center h-12 w-12 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-sm flex flex-col justify-center items-center"
+                disabled={isSaved}
+                onClick={() => {
+                  if (!isAuthenticated) {
+                    alert("You must be logged in to save articles.");
+                  } else {
+                    saveArticle(props.id);
+                  }
+                }}
+              >
+                <svg
+                  className="inline-flex fill-slate-400 dark:fill-slate-500 mt-1.5 mb-1.5"
+                  width="12"
+                  height="6"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="m0 6 6-6 6 6z" />
+                </svg>
+              </button>
+            )}
+          </div>
+          {/* Save button */}
+          {/* <div className="shrink-0">
             <button
               className={`text-xs text-slate-400 font-semibold text-center h-12 w-12 border border-slate-700 rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-100 dark:outline-indigo-500/10 `}
-              // disabled={isSaved}
               onClick={() => {
                 if (!isAuthenticated) {
                   alert("You must be logged in to save articles.");
@@ -129,14 +173,10 @@ export default function NewsItem(props) {
               {isSaved ? (
                 <BookmarkIconSolid className="h-6 w-6" />
               ) : (
-                <BookmarkIconOutline
-                  className="h-6 w-6"
-
-                  // onClick={() => console.log(props.id)}
-                />
+                <BookmarkIconOutline className="h-6 w-6" />
               )}
             </button>
-          </div>
+          </div> */}
         </div>
       </article>
     </>

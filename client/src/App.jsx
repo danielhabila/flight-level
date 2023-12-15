@@ -33,8 +33,6 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/news" element={<Home />} />
-
         {/* <Route path="/account" element={<Account />} /> */}
         <Route element={<PrivateRoutes />}>
           <Route path="/account" element={<Account />} />
