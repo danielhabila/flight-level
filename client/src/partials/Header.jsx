@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import fl from "../images/fl-logo2.png";
 import axios from "axios";
+import MobileMenu from "./ui/MobileMenu";
 
 function Header() {
   const location = useLocation();
@@ -95,6 +96,7 @@ function Header() {
                 )}
               </li>
             </ul>
+            {/* <MobileMenu /> */}
           </nav>
         </div>
       </div>
