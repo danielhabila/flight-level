@@ -96,7 +96,7 @@ export default function Account() {
                         );
                       })
                     ) : (
-                      <div className="grid place-items-center h3 h-fit text-gray-400 gap-10">
+                      <div className="grid place-items-center h4 h-fit text-gray-400 gap-10">
                         You have not cast any votes
                         <span>
                           <svg

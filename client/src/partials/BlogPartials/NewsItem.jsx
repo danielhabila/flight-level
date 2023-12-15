@@ -141,7 +141,7 @@ export default function NewsItem(props) {
                 disabled={isSaved}
                 onClick={() => {
                   if (!isAuthenticated) {
-                    alert("You must be logged in to save articles.");
+                    alert("You have to be logged in to vote.");
                   } else {
                     saveArticle(props.id);
                   }
