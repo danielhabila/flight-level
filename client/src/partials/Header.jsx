@@ -63,41 +63,59 @@ function Header() {
           </div>
 
           {/* Desktop navigation */}
-          <nav className="flex grow">
-            {/* Desktop sign in links */}
-            <ul className="flex grow justify-end flex-wrap items-center">
-              <li className="ml-3 sm:ml-6 inline ">
-                {!isAuthenticated ? (
-                  <Link
-                    className="btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
-                    onClick={login}
-                    // to="/login"
-                  >
-                    Login
-                    <span className="tracking-normal text-blue-950 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                      -&gt;
-                    </span>
-                  </Link>
-                ) : (
-                  <div className="flex grow justify-end flex-wrap items-center">
-                    <Link
-                      className="text-white font-medium text-sm hover:underline"
-                      to="/account"
-                    >
-                      {user.nickname}
-                    </Link>
-                    <Link
-                      className="ml-4 btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
-                      onClick={logout}
-                    >
-                      Logout!
-                    </Link>
-                  </div>
-                )}
+          {/* <nav className="hidden md:flex md:grow">
+            <ul className="flex grow justify-start flex-wrap items-center">
+              <li>
+                <Link
+                  className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out"
+                  href="/integrations"
+                >
+                  Pilot Jobs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out"
+                  href="/pricing"
+                >
+                  Payscale Info
+                </Link>
               </li>
             </ul>
-            {/* <MobileMenu /> */}
-          </nav>
+          </nav> */}
+          {/* Desktop sign in links */}
+          <ul className="flex grow justify-end flex-wrap items-center">
+            <li className="ml-3 sm:ml-6 inline ">
+              {!isAuthenticated ? (
+                <Link
+                  className="btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
+                  onClick={login}
+                  // to="/login"
+                >
+                  Login
+                  <span className="tracking-normal text-blue-950 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                    -&gt;
+                  </span>
+                </Link>
+              ) : (
+                <div className="flex grow justify-end flex-wrap items-center">
+                  <Link
+                    className="text-white font-medium text-sm hover:underline"
+                    to="/account"
+                  >
+                    {user.nickname}
+                  </Link>
+                  <Link
+                    className="ml-4 btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
+                    onClick={logout}
+                  >
+                    Logout!
+                  </Link>
+                </div>
+              )}
+            </li>
+          </ul>
+          {/* <MobileMenu /> */}
         </div>
       </div>
     </header>

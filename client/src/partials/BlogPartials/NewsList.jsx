@@ -3,7 +3,7 @@ import NewsItem from "./NewsItem.jsx";
 import moment from "moment";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import FeaturedPost from "./FeaturedPost";
+import { Link } from "react-router-dom";
 import Loader from "../ui/Loader.jsx";
 
 function NewsList() {
@@ -55,9 +55,17 @@ function NewsList() {
   return (
     <section>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 py-8">
-        <h2 className="h4 font-cabinet-grotesk text-gray-100 pb-2 mb-10 border-b border-gray-700">
-          Latest Updates
-        </h2>
+        <div className="flex justify-between items-center border-b border-gray-700 pb-2 mb-10 ">
+          <h2 className="h4 font-cabinet-grotesk text-gray-100 ">
+            Latest Updates
+          </h2>
+          <Link
+            to="/submit"
+            className="btn-sm py-1 text-white text-base font-medium bg-sky-500 hover:bg-sky-600"
+          >
+            Create Post
+          </Link>
+        </div>
 
         {isLoading ? (
           <div className="grid place-content-center">

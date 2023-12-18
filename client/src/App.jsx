@@ -7,6 +7,7 @@ import ContactMe from "./partials/ContactMe";
 import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
+import SubmitToFL from "./pages/SubmitToFL";
 import { useAuth0 } from "@auth0/auth0-react";
 import PrivateRoutes from "./pages/PrivateRoutes";
 
@@ -37,6 +38,7 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route path="/account" element={<Account />} />
         </Route>
+        <Route path="/submit" element={<SubmitToFL />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <ContactMe />

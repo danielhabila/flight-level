@@ -48,7 +48,7 @@ router.post("/", async (req, res) => {
     const newSubmission = await submittedModel.create(salaryForm);
 
     // Send the message to Telegram
-    let message = "*New Submission:*\n";
+    let message = "*New Salary Submission:*\n";
 
     const fields = [
       { key: "*Email*", value: salaryForm.email },

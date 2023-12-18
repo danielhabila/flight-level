@@ -2,6 +2,7 @@ import express from "express";
 import * as dotenv from "dotenv";
 import connectDB from "./mongodb/connectDB.js";
 import salaryRoute from "./routes/salaryRoute.js";
+import createPost from "./routes/createPost.js";
 import submittedSalary from "./routes/submittedSalary.js";
 import blogRoute from "./routes/blogRoute.js";
 import { userRouter } from "./routes/user.js";
@@ -26,6 +27,7 @@ app.use(
 
 // app.use("/api/", salaryRoute);
 app.use("/api/submittedSalary", submittedSalary);
+app.use("/api/create-post", createPost);
 app.use("/api/v1", blogRoute);
 app.use("/api", userRouter);
 app.use("/api/savedNews", savedNewsRouter);
