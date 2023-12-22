@@ -5,9 +5,9 @@ import App from "./App";
 import axios from "axios";
 import { Auth0Provider } from "@auth0/auth0-react";
 import GetIdsProvider from "./context/GetIdsContext";
-import RecoveryProvider from "./context/RecoveryContext";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import FetchSalaryProvider from "./context/FetchSalaryContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -34,11 +34,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         cacheLocation="localstorage"
       >
         <GetIdsProvider>
-          <RecoveryProvider>
+          <FetchSalaryProvider>
             <HelmetProvider>
               <App />
             </HelmetProvider>
-          </RecoveryProvider>
+          </FetchSalaryProvider>
         </GetIdsProvider>
       </Auth0Provider>
     </QueryClientProvider>

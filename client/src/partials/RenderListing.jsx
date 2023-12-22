@@ -19,7 +19,8 @@ export default function RenderListing({ data }) {
             <Disclosure as="div" key={oneAirline._id} className="pt-3 ">
               {({ open }) => (
                 <>
-                  <dt className="border-0 odd:bg-gradient-to-tr from-gray-900 to-gray-800 rounded-md ring-1 ring-white/20 p-5">
+                  <dt className="border-0 bg-slate-800/40 rounded-md ring-1 ring-white/20 p-5">
+                    {/* odd:bg-gradient-to-tr from-gray-900 to-gray-800 */}
                     <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-100 ">
                       <span className="text-base font-semibold leading-7 ">
                         {oneAirline.airline}

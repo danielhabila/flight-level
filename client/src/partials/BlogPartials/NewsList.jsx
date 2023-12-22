@@ -18,18 +18,16 @@ function NewsList() {
 
   const { data, isLoading, error } = useQuery(
     {
-      queryKey: ["posts"],
+      queryKey: ["news-posts"],
       queryFn: getPosts,
     }
+
     // { staleTime: 3600000, refetchOnmount: false }
   );
 
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-
-  // Extract the last blog post from the data array
-  const featuredBlog = data && data.newsPosts[data.newsPosts.length - 1];
 
   moment.locale("custom", {
     relativeTime: {
@@ -38,9 +36,9 @@ function NewsList() {
       s: "now",
       ss: "now",
       m: "now",
-      mm: "today",
-      h: "today",
-      hh: "today",
+      mm: "Today",
+      h: "Today",
+      hh: "Today",
       d: "1d",
       dd: "%dd",
       w: "1w",
@@ -61,9 +59,9 @@ function NewsList() {
           </h2>
           <Link
             to="/submit"
-            className="btn-sm py-1 text-white text-base font-medium bg-sky-500 hover:bg-sky-600"
+            className="btn-sm py-1 text-white text-sm md:text-base font-semibold bg-sky-500 hover:bg-sky-600"
           >
-            Create Post
+            Submit post
           </Link>
         </div>
 

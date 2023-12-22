@@ -63,12 +63,12 @@ function Header() {
           </div>
 
           {/* Desktop navigation */}
-          {/* <nav className="hidden md:flex md:grow">
-            <ul className="flex grow justify-start flex-wrap items-center">
+          <nav className="hidden md:flex md:grow">
+            <ul className="flex grow justify-center flex-wrap items-center">
               <li>
                 <Link
                   className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out"
-                  href="/integrations"
+                  to="/jobs"
                 >
                   Pilot Jobs
                 </Link>
@@ -76,13 +76,13 @@ function Header() {
               <li>
                 <Link
                   className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out"
-                  href="/pricing"
+                  to="/salaries"
                 >
                   Payscale Info
                 </Link>
               </li>
             </ul>
-          </nav> */}
+          </nav>
           {/* Desktop sign in links */}
           <ul className="flex grow justify-end flex-wrap items-center">
             <li className="ml-3 sm:ml-6 inline ">
@@ -99,12 +99,12 @@ function Header() {
                 </Link>
               ) : (
                 <div className="flex grow justify-end flex-wrap items-center">
-                  <Link
+                  <button
                     className="text-white font-medium text-sm hover:underline"
                     to="/account"
                   >
                     {user.nickname}
-                  </Link>
+                  </button>
                   <Link
                     className="ml-4 btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
                     onClick={logout}
@@ -115,7 +115,7 @@ function Header() {
               )}
             </li>
           </ul>
-          {/* <MobileMenu /> */}
+          <MobileMenu />
         </div>
       </div>
     </header>

@@ -6,13 +6,9 @@ import BgSVG from "../partials/ui/BgSVG";
 import SearchBar from "../partials/ui/SearchBar";
 import RenderListing from "../partials/RenderListing.jsx";
 import Loader from "../partials/ui/Loader.jsx";
-import { IoShare } from "react-icons/io5";
-import ModalShare from "../partials/ModalShare.jsx";
-import { ModalContext } from "../context/ModalContext.jsx";
 
 export default function Example() {
   const { salaryList, loading, error } = useContext(FetchSalaryContext);
-  const { open, setOpen } = useContext(ModalContext);
 
   const [searchText, setSearchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);
@@ -47,20 +43,17 @@ export default function Example() {
         <Header />
 
         <main className="grow py-16 md:py-24">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10">
-            <div className="flex items-center justify-between">
-              <h2 className="h2 font-cabinet-grotesk text-gray-100 ">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 py-14">
+            <div className="flex items-center justify-between border-b border-gray-700 pb-2 mb-10 ">
+              <h2 className="h4 sm:text-3xl font-cabinet-grotesk text-gray-100 ">
                 Explore Salaries
               </h2>
+
               {/* <button onClick={() => setOpen(!open)}>
                 <ModalShare />
                 <IoShare className="w-7 h-7 text-white" />
               </button> */}
             </div>
-            <p className="mt-4 md:text-lg leading-8 text-gray-400 ">
-              Find payscale information from different airlines. Get a feel of
-              what you can expect from each company.
-            </p>
             <dl className="mt-10 ">
               <div id="search-bar" className="sticky">
                 <SearchBar handleSearchChange={handleSearchChange} />

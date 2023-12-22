@@ -7,6 +7,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { GetIdsContext } from "../../context/GetIdsContext";
 
 export default function NewsItem(props) {
+  const defaultUrl = "https://flightlevel.fyi/";
+
   const { isAuthenticated, user } = useAuth0();
   const { fetchedSavedIds, currentUserEmail, loading } =
     useContext(GetIdsContext);
@@ -60,7 +62,7 @@ export default function NewsItem(props) {
             <img
               className="w-8 h-8 rounded-full"
               src={`https://www.google.com/s2/favicons?domain=${
-                props.allProps.postUrl ? props.allProps.postUrl : url
+                props.allProps.postUrl ? props.allProps.postUrl : defaultUrl
               }&sz=${32}`}
               width="32"
               height="32"

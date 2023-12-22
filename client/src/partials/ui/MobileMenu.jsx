@@ -78,17 +78,9 @@ export default function MobileMenu() {
           <li>
             <Link
               className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5"
-              to="/payscale"
+              to="/salaries"
             >
               Payscale Info
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5"
-              to="/flight-school"
-            >
-              Flight Schools
             </Link>
           </li>
         </ul>

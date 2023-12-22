@@ -8,13 +8,13 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
 import SubmitToFL from "./pages/SubmitToFL";
-import { useAuth0 } from "@auth0/auth0-react";
 import PrivateRoutes from "./pages/PrivateRoutes";
+import Listing from "./pages/Listing";
+import JobListing from "./pages/JobListing";
 
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
     // eslint-disable-next-line no-unused-vars
@@ -34,11 +34,12 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        {/* <Route path="/account" element={<Account />} /> */}
         <Route element={<PrivateRoutes />}>
           <Route path="/account" element={<Account />} />
         </Route>
         <Route path="/submit" element={<SubmitToFL />} />
+        <Route path="/jobs" element={<JobListing />} />
+        <Route path="/salaries" element={<Listing />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <ContactMe />
