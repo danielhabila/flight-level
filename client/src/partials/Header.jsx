@@ -99,12 +99,12 @@ function Header() {
                 </Link>
               ) : (
                 <div className="flex grow justify-end flex-wrap items-center">
-                  <button
+                  <Link
                     className="text-white font-medium text-sm hover:underline"
                     to="/account"
                   >
                     {user.nickname}
-                  </button>
+                  </Link>
                   <Link
                     className="ml-4 btn-sm inline-flex items-center bg-white hover:bg-white/80 group"
                     onClick={logout}

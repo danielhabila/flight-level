@@ -92,4 +92,29 @@ router.get("/", async (req, res) => {
   }
 });
 
+// --------------------------------Upvotes per post
+router.post("/upvotes", async (req, res) => {
+  try {
+    // const body = [10, 20];
+    const body = 20;
+
+    // -----------------------
+    const mutationQuery = gql`
+      mutation VoteMutation {
+        createVote(data: { upvotes: ${body} }) {
+          id
+          upvotes
+        }
+      }
+    `;
+
+    const graphqlAPI = process.env.HYGRAPH_ENDPOINT;
+    const results = await request(graphqlAPI, mutationQuery);
+
+    res.send(results);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export { router as savedNewsRouter };

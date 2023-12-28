@@ -19,16 +19,16 @@ export default function Account() {
       return response.data;
     },
     {
-      refetchOnMount: true,
+      //   refetchOnMount: true,
     }
   );
 
   if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  {
-    !isLoading && data && console.log("data from joblist", data);
+    return (
+      <div className="grid place-items-center h3 mt-20 text-gray-400">
+        Error fetching data :(
+      </div>
+    );
   }
 
   moment.locale("custom", {
