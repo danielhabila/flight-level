@@ -32,7 +32,7 @@ export default function JobItem(props) {
           {/* Content */}
           <div className="grow">
             {/* Title */}
-            <h2 className="font-semibold text-slate-800 dark:text-slate-100 mb-2">
+            <h2 className="font-semibold text-slate-100 mb-2">
               <a
                 className="flex flex-col sm:flex-row gap-x-2 gap-y-1 "
                 href={props.allProps.jobUrl}
@@ -50,14 +50,14 @@ export default function JobItem(props) {
             </h2>
             {/* Footer */}
             <footer className="flex flex-wrap text-sm">
-              {/* <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
+              {/* <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-600 after:px-2">
                 <span className="text-slate-500 text-[0.8rem]">
                   {props.allProps.visibleBaseUrl
                     ? props.allProps.visibleBaseUrl
                     : "flightlevel.fyi"}
                 </span>
               </div> */}
-              <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
+              <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-600 after:px-2">
                 <span className="text-slate-500 text-xs italic">
                   {props.allProps.location}
                 </span>
@@ -67,7 +67,7 @@ export default function JobItem(props) {
           {/* Save button */}
           {/* <div className="shrink-0">
             <button
-              className={`text-xs text-slate-400 font-semibold text-center h-12 w-12 border border-slate-700 rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-100 dark:outline-indigo-500/10 `}
+              className={`text-xs text-slate-400 font-semibold text-center h-12 w-12 border border-slate-700 rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-500/10 `}
               onClick={() => {
                 if (!isAuthenticated) {
                   alert("You must be logged in to save articles.");

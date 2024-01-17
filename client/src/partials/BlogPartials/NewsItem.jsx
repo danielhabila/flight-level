@@ -79,7 +79,7 @@ export default function NewsItem(props) {
           {/* Content */}
           <div className="grow">
             {/* Title */}
-            <h2 className="font-semibold text-slate-800 dark:text-slate-100 mb-2">
+            <h2 className="font-semibold text-slate-100 mb-2">
               <a
                 href={props.allProps.postUrl}
                 onClick={() => openInNewTab(props.allProps.postUrl)}
@@ -92,9 +92,9 @@ export default function NewsItem(props) {
             </h2>
             {/* Footer */}
             <footer className="flex flex-wrap text-sm">
-              {/* <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
+              {/* <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-600 after:px-2">
                 <a
-                  className="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                  className="font-medium text-indigo-500 hover:text-indigo-400"
                   href="#0"
                 >
                   <div className="flex items-center">
@@ -104,20 +104,20 @@ export default function NewsItem(props) {
                   </div>
                 </a>
               </div> */}
-              <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
+              <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-600 after:px-2">
                 <span className="text-slate-500 text-[0.8rem]">
                   {props.allProps.visibleBaseUrl
                     ? props.allProps.visibleBaseUrl
                     : "flightlevel.fyi"}
                 </span>
               </div>
-              <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
+              <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-600 after:px-2">
                 <span className="text-slate-500 text-xs italic">
                   {props.postDate}
                 </span>
               </div>
 
-              {/* <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-400 dark:after:text-slate-600 after:px-2">
+              {/* <div className="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-slate-600 after:px-2">
                 <span className="text-slate-500">688 Comments</span>
               </div> */}
             </footer>
@@ -126,7 +126,7 @@ export default function NewsItem(props) {
           <div className="shrink-0">
             {isSaved ? (
               <button
-                className="text-xs font-semibold text-center h-12 w-12 border border-[#37BDF7] rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-100 dark:outline-indigo-500/10"
+                className="text-xs font-semibold text-center h-12 w-12 border border-[#37BDF7] rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-500/10"
                 onClick={() => {
                   if (!isAuthenticated) {
                     alert("You must be logged in to save articles.");
@@ -146,7 +146,7 @@ export default function NewsItem(props) {
               </button>
             ) : (
               <button
-                className="text-xs font-semibold text-center h-12 w-12 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-sm flex flex-col justify-center items-center"
+                className="text-xs font-semibold text-center h-12 w-12 border border-slate-700 hover:border-slate-600 rounded-sm flex flex-col justify-center items-center"
                 disabled={isSaved}
                 onClick={() => {
                   if (!isAuthenticated) {
@@ -157,7 +157,7 @@ export default function NewsItem(props) {
                 }}
               >
                 <svg
-                  className="inline-flex fill-slate-400 dark:fill-slate-500 mt-1.5 mb-1.5"
+                  className="inline-flex fill-slate-500 mt-1.5 mb-1.5"
                   width="12"
                   height="6"
                   xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +170,7 @@ export default function NewsItem(props) {
           {/* Save button */}
           {/* <div className="shrink-0">
             <button
-              className={`text-xs text-slate-400 font-semibold text-center h-12 w-12 border border-slate-700 rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-100 dark:outline-indigo-500/10 `}
+              className={`text-xs text-slate-400 font-semibold text-center h-12 w-12 border border-slate-700 rounded-sm flex flex-col justify-center items-center outline outline-2 outline-indigo-500/10 `}
               onClick={() => {
                 if (!isAuthenticated) {
                   alert("You must be logged in to save articles.");
