@@ -5,8 +5,14 @@ import { BookmarkIcon as BookmarkIconSolid } from "@heroicons/react/24/solid";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { GetIdsContext } from "../../context/GetIdsContext";
+import mixpanel from "mixpanel-browser";
 
 export default function NewsItem(props) {
+  mixpanel.init("07f8cbf36c5b5714173ddedeb1f0eeec", {
+    debug: true,
+    track_pageview: true,
+    persistence: "localStorage",
+  });
   const defaultUrl = "https://flightlevel.fyi/";
 
   const { isAuthenticated, user } = useAuth0();
@@ -23,6 +29,7 @@ export default function NewsItem(props) {
     if (newTab) {
       newTab.focus();
     }
+    mixpanel.track("Testing news item click");
   };
 
   const saveArticle = async (savedNewsId) => {
@@ -55,7 +62,7 @@ export default function NewsItem(props) {
 
   return (
     <>
-      <article className="bg-white dark:bg-slate-800/40 shadow-md rounded-md border border-slate-200 dark:border-slate-700 p-5">
+      <article className="bg-slate-800/40 shadow-md rounded-md border border-slate-700 p-5">
         <div className="flex flex-start space-x-4">
           {/* Avatar */}
           <div className="shrink-0 mt-1.5">

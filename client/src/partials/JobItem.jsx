@@ -15,7 +15,7 @@ export default function JobItem(props) {
 
   return (
     <>
-      <article className="bg-white dark:bg-slate-800/40 shadow-md rounded-md border border-slate-200 dark:border-slate-700 p-4">
+      <article className="bg-slate-800/40 shadow-md rounded-md border border-slate-700 p-4">
         <div className="flex flex-start space-x-4">
           {/* Avatar */}
           <div className="shrink-0 mt-1.5">
